@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public Input_actions controls;
     [Header("Character controller")]
     public CharacterController char_control;
-    public Animator m_animation;
+   
     [Header("Player Movement")]
     public Vector3 Currentplayermovement;
     public float speed = 17f;
@@ -20,11 +20,11 @@ public class Player : MonoBehaviour
     public Transform Ground_pos;
     public float Ground_dis = 0.4f;
     public LayerMask Ground_mask;
+
     [Header("Gravity")]
     public float Gravity = -9.81f;
 
     [Header("Jump")]
-
     public float max_jumps = 2;
     public float jump_speed = 10f;
     public float jump_height = 4;
@@ -33,15 +33,14 @@ public class Player : MonoBehaviour
     private bool isWalking => Currentplayermovement.z > 0f || Currentplayermovement.x !=0f;
     private bool isRunning;
     private bool jumpPressed;
-    private float jumpVel;
-
+    
 
     //New input system accessing from the script.
     private void Awake()
     {
         controls = new Input_actions();
         char_control = GetComponent<CharacterController>();
-        m_animation= GetComponent<Animator>();
+     
         controls.Player.Movement.performed += ctx => movement(ctx.ReadValue<Vector2>());
         //controls.Player.Jump.performed += ctx => jump();
         controls.Player.Jump.started += jump;
@@ -55,7 +54,6 @@ public class Player : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
        
     }
-
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -79,14 +77,14 @@ public class Player : MonoBehaviour
             velocity += Gravity*Time.deltaTime;
         }
         //Player Sprinting
-
         if (Input.GetKey(KeyCode.LeftShift)) 
         {
             isRunning = true;
             char_control.Move(Currentplayermovement * speed * sprint_speed * Time.deltaTime);
+           
+
         }
-       
-       //char_control.Move(velocity * Time.deltaTime);
+
     }
     public void movement(Vector2 Direction)
     {
