@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     [Header("Bools")]
     public bool isGrounded;
     private bool isWalking => Currentplayermovement.z > 0f || Currentplayermovement.x !=0f;
-    private bool isRunning;
+    public bool isRunning;
     private bool jumpPressed;
     
 
