@@ -37,7 +37,7 @@ public class Enemy_spawner : MonoBehaviour
     private void Spawn_enemy()
     {
         int spawnersID = Random.Range(0, spawners.Length);
-      GameObject Zob=   Instantiate(zombie, spawners[spawnersID].transform.position, spawners[spawnersID].transform.rotation);
+        GameObject Zob=   Instantiate(zombie, spawners[spawnersID].transform.position, spawners[spawnersID].transform.rotation);
         Zob.transform.parent = transform;
     }
 
