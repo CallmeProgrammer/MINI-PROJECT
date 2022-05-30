@@ -16,9 +16,9 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     int currentTransformIndex;
 
     //private bool PlayerisinRange = false;
-    private bool isAttacking =false;
-    private bool isPatroling =false;
-    private bool isChasing =false;
+    private bool isAttacking = false;
+    private bool isPatroling = false;
+    private bool isChasing = false;
     RaycastHit hit;
 
     // Start is called before the first frame update
@@ -50,17 +50,17 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             look_At_Player();
         }
 
-            //if (distance <= zombie.stoppingDistance)
-            //{
+        //if (distance <= zombie.stoppingDistance)
+        //{
 
-            //}
+        //}
 
-            if (Distance(Player_pos , transform) <= zombie.stoppingDistance)
+        if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
         {
             isAttacking = true;
 
         }
-       if((Distance(Target_points[currentTransformIndex], transform)<= zombie.stoppingDistance+1.5f) && !isChasing)
+        if ((Distance(Target_points[currentTransformIndex], transform) <= zombie.stoppingDistance + 1.5f) && !isChasing)
         {
             zombie_Patrol();
             isPatroling = true;
@@ -69,12 +69,12 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     }
     public float Distance(Transform from, Transform to)
     {
-       return Vector3.Distance(from.position, to.position);
+        return Vector3.Distance(from.position, to.position);
 
     }
 
 
-    public void  look_At_Player()
+    public void look_At_Player()
     {
         Vector3 direction = (Player_pos.position - transform.position).normalized;
         Quaternion lookrotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
@@ -94,12 +94,19 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         zombie.SetDestination(Target_points[targetID].position);
         currentTransformIndex = targetID;
 
-        
+
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, look_radius);
+    }  
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(Ray_point.transform.position,Vector3.forward*-1 * range);
     }
+
+  
 }
