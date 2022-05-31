@@ -18,8 +18,7 @@ public class Enemy_spawner : MonoBehaviour
 
         for(int i = 0; i<=zombie_count; i++)
         {
-
-            Spawn_enemy();
+            Spawn_enemy();   
             //spawners[i] = transform.GetChild(i).gameObject;
         }
     }
@@ -27,7 +26,7 @@ public class Enemy_spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    
+      
             //Spawn_enemy();
        // StartWave();
 
