@@ -8,7 +8,7 @@ public class Enemy_spawner : MonoBehaviour
     public GameObject zombie;
     //public float zombie_count = 1;
     private int wave_num = 0;
-    private int zombie_count = 20;
+    private int zombie_count = 30;
     private int zombiekill_count = 0;
 
     // Start is called before the first frame update

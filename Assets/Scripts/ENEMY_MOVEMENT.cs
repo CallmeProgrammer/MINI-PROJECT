@@ -11,10 +11,14 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     public GameObject Ray_point;
     public float range = 30f;
     public float look_radius = 10f;
+    public float attack_radius;
+    
     public Transform[] Target_points;
-    private float distance;
+    private Vector3 zom_distance;
     int currentTransformIndex;
 
+
+   
     //private bool PlayerisinRange = false;
     private bool isAttacking = false;
     private bool isPatroling = false;
@@ -25,6 +29,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     void Start()
     {
         zombie = GetComponent<NavMeshAgent>();
+        
         zombie_Patrol();
     }
 
@@ -32,7 +37,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     void Update()
     {
 
-
+        attack_radius = zombie.stoppingDistance;
         if (Physics.Raycast(Ray_point.transform.position, Ray_point.transform.forward, out hit, range))
         {
             if (hit.transform.gameObject.CompareTag("Player"))
@@ -41,39 +46,60 @@ public class ENEMY_MOVEMENT : MonoBehaviour
                 look_At_Player();
             }
         }
+        //if (distance <= look_radius && PLAYER.GetComponent<Player_New>().isRunning)
+        //{
+        //    isChasing = true;
+        //    follow_player();
+        //    look_At_Player();
+        //}
+        //else
+        //{
+        //    isChasing = false;
 
-
-        if (distance <= look_radius && PLAYER.GetComponent<Player>().isRunning)
-        {
-            isChasing = true;
-            follow_player();
-            look_At_Player();
-        }
+        //}
 
         //if (distance <= zombie.stoppingDistance)
         //{
 
         //}
 
+        // distance = Distance(Player_pos.position, )
+        float dist = Vector3.Distance(Player_pos.position, transform.position);
+
+        if (Vector3. Distance(Target_points[currentTransformIndex].position, transform.position) <= zombie.stoppingDistance + 1.5f && !isChasing)
+        {
+            zombie_Patrol();
+            isPatroling = true;
+        }
+
+
+        if (dist <= look_radius && PLAYER.GetComponent<Player_New>().isRunning)
+        {
+            isChasing = true;
+
+            follow_player();
+            look_At_Player();
+        }
+        else if(dist >= look_radius && isChasing)
+        {
+            isChasing = false;
+            zombie_Patrol();
+        }
+
+        Debug.Log(Distance(Target_points[currentTransformIndex], transform));
         if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
         {
             isAttacking = true;
 
         }
-        if ((Distance(Target_points[currentTransformIndex], transform) <= zombie.stoppingDistance + 1.5f) && !isChasing)
-        {
-            zombie_Patrol();
-            isPatroling = true;
-        }
-        Debug.Log(Distance(Target_points[currentTransformIndex], transform));
     }
+
+
     public float Distance(Transform from, Transform to)
     {
         return Vector3.Distance(from.position, to.position);
 
     }
-
-
     public void look_At_Player()
     {
         Vector3 direction = (Player_pos.position - transform.position).normalized;
@@ -93,8 +119,6 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         //}
         zombie.SetDestination(Target_points[targetID].position);
         currentTransformIndex = targetID;
-
-
     }
 
     private void OnDrawGizmosSelected()

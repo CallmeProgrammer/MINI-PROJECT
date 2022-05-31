@@ -7,7 +7,7 @@ TagManager:
   - Shootable
   - Ground
   - Glass_objs
-  - Enemy
+  - Zombie
   - Door
   layers:
   - Default
