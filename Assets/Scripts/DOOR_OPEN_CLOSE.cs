@@ -14,7 +14,7 @@ public class DOOR_OPEN_CLOSE : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             Door_open();
-            Debug.Log("PLAYER");
+            Debug.Log("PLAYER calling open");
         }
     }
 

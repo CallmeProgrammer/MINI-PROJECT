@@ -24,8 +24,9 @@ public class Gun : MonoBehaviour
 
     public GameObject impacteffect;
 
-    public int maxAmmo = 10;
-    private int currentAmmo;
+    public int maxAmmo = 30;
+    public int mag_size = 30;
+    public int currentAmmo;
     public float reloadtime = 1f;
     private bool isreloading = false;
 
@@ -39,10 +40,9 @@ public class Gun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       if(currentAmmo == -1)
-        {
+      
             currentAmmo = maxAmmo;
-        }
+        
         
     }
     public void Awake()
@@ -55,8 +55,7 @@ public class Gun : MonoBehaviour
         //Defining input actions
         actions = new Input_actions();
         actions.Player.Shoot.performed +=ctx=> shoot();
-       // actions.Player.Shoot.started += ctx => shoot();
-        //actions.Player.Shoot.canceled += ctx =>stop_muzzleflash();
+      
     }
 
     // Update is called once per frame
@@ -70,6 +69,7 @@ public class Gun : MonoBehaviour
            StartCoroutine(Reload());
             return;
         }
+       
         if(Input.GetKey(KeyCode.Mouse0) && Time.time >= nexttimetofire)
         {
             nexttimetofire = Time.time + 1f / firerate;
@@ -84,7 +84,17 @@ public class Gun : MonoBehaviour
     {
         isreloading = true;
         yield return new WaitForSeconds(reloadtime);
-        currentAmmo = maxAmmo;
+        if(mag_size >= maxAmmo)
+        {
+            currentAmmo = maxAmmo;
+            mag_size -= maxAmmo;
+        }
+        else
+        {
+            currentAmmo = mag_size;
+            mag_size = 0;
+        }
+        
         isreloading = false; 
     }
 
@@ -92,7 +102,7 @@ public class Gun : MonoBehaviour
     {
        //Declaring Raycast
         RaycastHit hit;
-
+        currentAmmo--;
 
         //Checking Whether it is hitting an object or not
         if (Physics.Raycast(fps_cam.transform.position, fps_cam.transform.forward, out hit, range))
@@ -123,7 +133,6 @@ public class Gun : MonoBehaviour
           
             Instantiate(impacteffect, hit.point, Quaternion.LookRotation(hit.normal));
 
-            //
          
         }
        

@@ -87,9 +87,10 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         }
 
         Debug.Log(Distance(Target_points[currentTransformIndex], transform));
-        if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
+        if (Distance(Player_pos, transform) <= attack_radius)
         {
             isAttacking = true;
+            
 
         }
     }
