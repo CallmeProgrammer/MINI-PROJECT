@@ -30,6 +30,7 @@ public class Gun : MonoBehaviour
     public float reloadtime = 1f;
     private bool isreloading = false;
 
+    public Animator anim;
 
 
     
@@ -42,8 +43,8 @@ public class Gun : MonoBehaviour
     {
       
             currentAmmo = maxAmmo;
-        
-        
+        anim = GetComponent<Animator>();
+
     }
     public void Awake()
     {
@@ -73,22 +74,25 @@ public class Gun : MonoBehaviour
         if(Input.GetKey(KeyCode.Mouse0) && Time.time >= nexttimetofire)
         {
             nexttimetofire = Time.time + 1f / firerate;
+           
             muzzle_flash.Play();
             
             shoot();
         }
-        
     }
      
     IEnumerator Reload()
     {
         isreloading = true;
-        yield return new WaitForSeconds(reloadtime);
-        if(mag_size >= maxAmmo)
+        //yield return new WaitForSeconds(reloadtime);
+        yield return 0 ;
+        if (mag_size >= maxAmmo && maxAmmo !=0)
         {
             currentAmmo = maxAmmo;
             mag_size -= maxAmmo;
+            maxAmmo = 0;
         }
+        
         else
         {
             currentAmmo = mag_size;
