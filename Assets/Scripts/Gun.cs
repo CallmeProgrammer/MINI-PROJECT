@@ -73,11 +73,13 @@ public class Gun : MonoBehaviour
        
         if(Input.GetKey(KeyCode.Mouse0) && Time.time >= nexttimetofire)
         {
-            nexttimetofire = Time.time + 1f / firerate;
-           
-            muzzle_flash.Play();
-            
+            nexttimetofire = Time.time + 1f / firerate; 
+            muzzle_flash.Play();           
             shoot();
+        }
+        else
+        {
+            anim.SetBool("isidle", true);
         }
     }
      
@@ -111,7 +113,7 @@ public class Gun : MonoBehaviour
         //Checking Whether it is hitting an object or not
         if (Physics.Raycast(fps_cam.transform.position, fps_cam.transform.forward, out hit, range))
         {
-            
+            anim.SetBool("isidle", false);
             //Displays object name if raycast hit it           
             Debug.Log(hit.transform.name);
 
