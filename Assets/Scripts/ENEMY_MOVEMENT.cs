@@ -55,24 +55,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
                 look_At_Player();
             }
         }
-        //if (distance <= look_radius && PLAYER.GetComponent<Player_New>().isRunning)
-        //{
-        //    isChasing = true;
-        //    follow_player();
-        //    look_At_Player();
-        //}
-        //else
-        //{
-        //    isChasing = false;
-
-        //}
-
-        //if (distance <= zombie.stoppingDistance)
-        //{
-
-        //}
-
-        // distance = Distance(Player_pos.position, )
+       
         float dist = Vector3.Distance(Player_pos.position, transform.position);
 
         if (Vector3. Distance(Target_points[currentTransformIndex].position, transform.position) <= zombie.stoppingDistance + 1.5f && !isChasing)
@@ -132,6 +115,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         //    targetID = targetID==Target_points.Length ? targetID - 1 : targetID + 1;
         //}
         zombie.SetDestination(Target_points[targetID].position);
+        zombie.transform.LookAt(Target_points[targetID].position);
         currentTransformIndex = targetID;
     }
 
