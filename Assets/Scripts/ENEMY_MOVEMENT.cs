@@ -11,21 +11,30 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     public GameObject Ray_point;
     public float range = 30f;
     public float look_radius = 10f;
-    public float attack_radius;
+    public float attack_radius = 5f;
     
     public Transform[] Target_points;
     private Vector3 zom_distance;
     int currentTransformIndex;
 
-
+    public static ENEMY_MOVEMENT enemy_instance;
    
     //private bool PlayerisinRange = false;
-    private bool isAttacking = false;
-    private bool isPatroling = false;
-    private bool isChasing = false;
+    public bool isAttacking = false;
+    public bool isPatroling = false;
+    public bool isChasing = false;
     RaycastHit hit;
 
     // Start is called before the first frame update
+
+    public void Awake()
+    {
+        if (enemy_instance != null)
+        {
+            return;
+        }
+        enemy_instance = this;
+    }
     void Start()
     {
         zombie = GetComponent<NavMeshAgent>();
@@ -93,6 +102,10 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             
 
         }
+        else if(Distance(Player_pos, transform) > attack_radius)
+        {
+            isAttacking = false;
+        }
     }
 
 
@@ -126,7 +139,9 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, look_radius);
-    }  
+        Gizmos.DrawWireSphere(transform.position, attack_radius);
+    }
+   
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
