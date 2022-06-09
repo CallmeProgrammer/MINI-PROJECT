@@ -17,17 +17,20 @@ public class Zombie_Animations : MonoBehaviour
     {
         if(ENEMY_MOVEMENT.enemy_instance.isPatroling && ENEMY_MOVEMENT.enemy_instance.currentTransformIndex >= 0)
         {
-            Zom_anim.SetBool("isIdle", false);
+            Zom_anim.SetBool("isIdle" , false);
         }
 
 
-        if (ENEMY_MOVEMENT.enemy_instance.dist <= ENEMY_MOVEMENT.enemy_instance.look_radius && ENEMY_MOVEMENT.enemy_instance.isChasing )
+        if(ENEMY_MOVEMENT.enemy_instance.dist <= ENEMY_MOVEMENT.enemy_instance.look_radius && ENEMY_MOVEMENT.enemy_instance.isChasing )
         {
            Zom_anim.SetBool("isRunning", true);
+            Zom_anim.SetBool("isWalking", false);
         }
-        else if (ENEMY_MOVEMENT.enemy_instance.dist >= ENEMY_MOVEMENT.enemy_instance.look_radius && ENEMY_MOVEMENT.enemy_instance.isChasing)
+        //ENEMY_MOVEMENT.enemy_instance.dist >= ENEMY_MOVEMENT.enemy_instance.look_radius && ENEMY_MOVEMENT.enemy_instance.isChasing
+        else if(ENEMY_MOVEMENT.enemy_instance.isPatroling && ENEMY_MOVEMENT.enemy_instance.currentTransformIndex >= 0)
         {
-            Zom_anim.SetBool("isIdle", false);
+            Zom_anim.SetBool("isWalking", true);
+            Zom_anim.SetBool("isRunning", false);
         }
 
         //if (ENEMY_MOVEMENT.enemy_instance.isAttacking && ENEMY_MOVEMENT.enemy_instance.dist <= ENEMY_MOVEMENT.enemy_instance.attack_radius)
