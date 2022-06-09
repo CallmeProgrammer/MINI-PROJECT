@@ -9,6 +9,7 @@ TagManager:
   - Glass_objs
   - Zombie
   - Door
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Lighting
   - Ground
   - Postprocessing
-  - 
+  - Zombie
   - 
   - 
   - 

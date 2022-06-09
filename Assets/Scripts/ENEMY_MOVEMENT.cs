@@ -12,10 +12,10 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     public float range = 30f;
     public float look_radius = 10f;
     public float attack_radius = 5f;
-    
+    public float dist;
     public Transform[] Target_points;
     private Vector3 zom_distance;
-    int currentTransformIndex;
+    public int currentTransformIndex;
 
     public static ENEMY_MOVEMENT enemy_instance;
    
@@ -56,7 +56,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             }
         }
        
-        float dist = Vector3.Distance(Player_pos.position, transform.position);
+         dist = Vector3.Distance(Player_pos.position, transform.position);
 
         if (Vector3. Distance(Target_points[currentTransformIndex].position, transform.position) <= zombie.stoppingDistance + 1.5f && !isChasing)
         {
