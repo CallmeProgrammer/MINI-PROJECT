@@ -11,14 +11,17 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     public GameObject Ray_point;
     public float range = 30f;
     public float look_radius = 10f;
-    public float attack_radius = 5f;
+    public float attack_radius = 7f;
     public float dist;
     public Transform[] Target_points;
     private Vector3 zom_distance;
     public int currentTransformIndex;
 
     public static ENEMY_MOVEMENT enemy_instance;
-   
+
+    public string currentstate;
+    public Animator anime;
+
     //private bool PlayerisinRange = false;
     public bool isAttacking = false;
     public bool isPatroling = false;
@@ -37,15 +40,16 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     }
     void Start()
     {
+
         zombie = GetComponent<NavMeshAgent>();
-        
+        playanimstate("ZOMBIE_WALKING");
         zombie_Patrol();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        updateanimation();
         attack_radius = zombie.stoppingDistance;
         if (Physics.Raycast(Ray_point.transform.position, Ray_point.transform.forward, out hit, range))
         {
@@ -79,13 +83,13 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         }
 
         Debug.Log(Distance(Target_points[currentTransformIndex], transform));
-        if (Distance(Player_pos, transform) <= attack_radius)
+        if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
         {
             isAttacking = true;
             
 
         }
-        else if(Distance(Player_pos, transform) > attack_radius)
+        else if(Distance(Player_pos, transform) >= zombie.stoppingDistance)
         {
             isAttacking = false;
         }
@@ -118,7 +122,48 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         zombie.transform.LookAt(Target_points[targetID].position);
         currentTransformIndex = targetID;
     }
+    public void updateanimation()
+    {
+        //if (ENEMY_MOVEMENT.enemy_instance.isPatroling && ENEMY_MOVEMENT.enemy_instance.currentTransformIndex >= 0)
+        //{
+        //    playanimstate("ZOMBIE_WALKING");
+        //}
+        if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
+        {
+            zombie.isStopped = true;
+            playanimstate("ZOMBIE_ATTACK");
+        }
+        else if (dist <=look_radius && isChasing)
+        {
+            zombie.isStopped = false;
+            playanimstate("ZOMBIE_RUNNING");
+            zombie.speed = 10;
+        }
+        else if (dist >= look_radius &&isChasing == false)
+        {
+            zombie.isStopped = false;
+            playanimstate("ZOMBIE_WALKING");
+            zombie.speed = 1;
+        }
+       
+        //else if (isAttacking && dist >= zombie.stoppingDistance && dist >= look_radius)
+        //{
+        //    playanimstate("ZOMBIE_WALKING");
+        //}
+        //else
+        //{
+        //    playanimstate("ZOMBIE_RUNNING");
 
+        //}
+    }
+    private void playanimstate(string state)
+    {
+        if (currentstate == state)
+            return;
+
+        anime.Play(state);
+        currentstate = state;
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

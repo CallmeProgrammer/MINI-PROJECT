@@ -136,6 +136,11 @@ public class Gun : MonoBehaviour
             {
                 target.take_damage(damage);
             }
+            else if(hit.transform.gameObject.tag == "Head")
+            {
+                Debug.Log("Headshot");
+                target.take_damage(damage * 5);
+            }
           
             Instantiate(impacteffect, hit.point, Quaternion.LookRotation(hit.normal));
 

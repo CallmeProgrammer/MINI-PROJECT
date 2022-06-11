@@ -27,19 +27,21 @@ public class Zombie_Animations : MonoBehaviour
             Zom_anim.SetBool("isWalking", false);
         }
         //ENEMY_MOVEMENT.enemy_instance.dist >= ENEMY_MOVEMENT.enemy_instance.look_radius && ENEMY_MOVEMENT.enemy_instance.isChasing
-        else if(ENEMY_MOVEMENT.enemy_instance.isPatroling && ENEMY_MOVEMENT.enemy_instance.currentTransformIndex >= 0)
+        else if(ENEMY_MOVEMENT.enemy_instance.isPatroling  && ENEMY_MOVEMENT.enemy_instance.currentTransformIndex >= 0)
         {
             Zom_anim.SetBool("isWalking", true);
             Zom_anim.SetBool("isRunning", false);
         }
 
-        //if (ENEMY_MOVEMENT.enemy_instance.isAttacking && ENEMY_MOVEMENT.enemy_instance.dist <= ENEMY_MOVEMENT.enemy_instance.attack_radius)
+        //if (ENEMY_MOVEMENT.enemy_instance.isAttacking && ENEMY_MOVEMENT.enemy_instance.dist <= ENEMY_MOVEMENT.enemy_instance.zombie.stoppingDistance)
         //{
         //    Zom_anim.SetBool("isAttacking", true);
         //}
-        //else if (ENEMY_MOVEMENT.enemy_instance.isAttacking && ENEMY_MOVEMENT.enemy_instance.dist >= ENEMY_MOVEMENT.enemy_instance.attack_radius)
+        //else if (ENEMY_MOVEMENT.enemy_instance.isAttacking == false && ENEMY_MOVEMENT.enemy_instance.dist >= ENEMY_MOVEMENT.enemy_instance.zombie.stoppingDistance)
         //{
         //    Zom_anim.SetBool("isAttacking", false);
+        //    Zom_anim.SetBool("isRunning", true);
+        //    Zom_anim.SetBool("isWalking", false);
         //}
 
 

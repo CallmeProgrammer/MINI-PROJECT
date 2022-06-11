@@ -10,6 +10,7 @@ TagManager:
   - Zombie
   - Door
   - Enemy
+  - Head
   layers:
   - Default
   - TransparentFX

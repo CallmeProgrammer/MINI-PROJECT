@@ -7,8 +7,8 @@ public class Target : MonoBehaviour
 
     public float health = 100f;
     public bool isDead;
-    
 
+    
     public void take_damage(float amount)
     {
         health -= amount;
