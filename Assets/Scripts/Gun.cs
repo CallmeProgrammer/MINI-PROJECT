@@ -8,12 +8,14 @@ public class Gun : MonoBehaviour
     [Header("Damage and Range")]
     public float damage = 10f;
     public float range = 1000f;
+    public float obj_range = 20f;
     [Header("Input System")]
     public Input_actions actions;
     [Header("Bullet Prefab")]
     public GameObject Bullet_case;
     [Header("Camera for Raycast")]
     public Camera fps_cam;
+    public Camera fps_objcam;
     [Header("Particle System")]
     public ParticleSystem muzzle_flash;
     public float impact_force = 5f;
@@ -31,6 +33,8 @@ public class Gun : MonoBehaviour
     private bool isreloading = false;
 
     public Animator anim;
+
+
 
 
     
@@ -77,10 +81,9 @@ public class Gun : MonoBehaviour
             muzzle_flash.Play();           
             shoot();
         }
-        else
-        {
-            anim.SetBool("isidle", true);
-        }
+       
+
+        obj_detect();
     }
      
     IEnumerator Reload()
@@ -113,7 +116,7 @@ public class Gun : MonoBehaviour
         //Checking Whether it is hitting an object or not
         if (Physics.Raycast(fps_cam.transform.position, fps_cam.transform.forward, out hit, range))
         {
-            anim.SetBool("isidle", false);
+           
             //Displays object name if raycast hit it           
             Debug.Log(hit.transform.name);
 
@@ -144,14 +147,31 @@ public class Gun : MonoBehaviour
           
             Instantiate(impacteffect, hit.point, Quaternion.LookRotation(hit.normal));
 
-         
         }
-       
-        Debug.Log("pressed shoot");
-
-    }
     
- 
+        Debug.Log("pressed shoot");
+    }
+    public void obj_detect()
+    {
+        RaycastHit hit;
+
+        if(Physics.Raycast(fps_objcam.transform.position, fps_objcam.transform.forward, out hit, obj_range))
+        {
+            Debug.Log(hit.transform.name);
+            if(hit.transform.gameObject.tag == "Gun" && Input.GetKey(KeyCode.E))
+            {
+                Item_object.object_instance.set_inactive();
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(fps_objcam.transform.position, Vector3.right * obj_range);
+    }
+
+
     //NEW INPUTSYSTEM
     private void OnEnable()
     {

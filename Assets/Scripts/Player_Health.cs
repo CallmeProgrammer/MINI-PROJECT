@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Player_Health : MonoBehaviour
 {
-    public float health = 100;
-    private float damage = 10;
+    public double health = 100;
+    private double damage = 0.01;
     public static Player_Health health_Instance;
 
     // Start is called before the first frame update
@@ -28,7 +28,7 @@ public class Player_Health : MonoBehaviour
     {
         if (health <= 0)
         {
-            Debug.Log("DIED");
+            gameObject.SetActive(false);
         }
     }
     public void take_damage()

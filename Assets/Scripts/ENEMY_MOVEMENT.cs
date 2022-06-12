@@ -9,7 +9,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     public Transform Player_pos;
     public GameObject PLAYER;
     public GameObject Ray_point;
-    public float range = 30f;
+    public float range = 10f;
     public float look_radius = 10f;
     public float attack_radius = 7f;
     public float dist;
@@ -55,6 +55,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         {
             if (hit.transform.gameObject.CompareTag("Player"))
             {
+                Player_Health.health_Instance.take_damage();
                 follow_player();
                 look_At_Player();
             }
@@ -82,12 +83,10 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             zombie_Patrol();
         }
 
-        Debug.Log(Distance(Target_points[currentTransformIndex], transform));
+        //Debug.Log(Distance(Target_points[currentTransformIndex], transform));
         if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
         {
             isAttacking = true;
-            
-
         }
         else if(Distance(Player_pos, transform) >= zombie.stoppingDistance)
         {
@@ -132,6 +131,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         {
             zombie.isStopped = true;
             playanimstate("ZOMBIE_ATTACK");
+          
         }
         else if (dist <=look_radius && isChasing)
         {
@@ -174,7 +174,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(Ray_point.transform.position,Vector3.forward*-1 * range);
+        Gizmos.DrawRay(Ray_point.transform.position,Vector3.forward * range);
     }
 
   

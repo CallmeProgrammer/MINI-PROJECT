@@ -903,6 +903,7 @@ GameObject:
   - component: {fileID: 8288545209424101342}
   - component: {fileID: 2340822641413192010}
   - component: {fileID: 400699532597107380}
+  - component: {fileID: 1349858584}
   m_Layer: 0
   m_Name: AK47
   m_TagString: Untagged
@@ -919,7 +920,7 @@ Transform:
   m_GameObject: {fileID: 8668588536578794852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.3572865, y: 31.698, z: 1.1570244}
-  m_LocalScale: {x: 1.0374216, y: 1.0374216, z: 1.0374216}
+  m_LocalScale: {x: 6.768242, y: 6.768242, z: 6.768242}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4041377068791802633}
@@ -963,6 +964,11 @@ MonoBehaviour:
   Normal_glass: {fileID: 0}
   Broken_glass: {fileID: 0}
   impacteffect: {fileID: 0}
+  maxAmmo: 30
+  mag_size: 30
+  currentAmmo: 0
+  reloadtime: 1
+  anim: {fileID: 0}
 --- !u!114 &400699532597107380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -986,6 +992,24 @@ MonoBehaviour:
   Normal_glass: {fileID: 0}
   Broken_glass: {fileID: 0}
   impacteffect: {fileID: 0}
+  maxAmmo: 30
+  mag_size: 30
+  currentAmmo: 0
+  reloadtime: 1
+  anim: {fileID: 0}
+--- !u!65 &1349858584
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8668588536578794852}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.34795132, y: 0.40900573, z: 1}
+  m_Center: {x: -0.030526632, y: -0.000000017613036, z: 0}
 --- !u!1 &8832973252302344029
 GameObject:
   m_ObjectHideFlags: 0
