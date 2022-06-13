@@ -31,6 +31,7 @@ public class Gun : MonoBehaviour
     public int currentAmmo;
     public float reloadtime = 1f;
     private bool isreloading = false;
+    public bool isShooting = false;
 
     public Animator anim;
 
@@ -78,7 +79,8 @@ public class Gun : MonoBehaviour
         if(Input.GetKey(KeyCode.Mouse0) && Time.time >= nexttimetofire)
         {
             nexttimetofire = Time.time + 1f / firerate; 
-            muzzle_flash.Play();           
+            muzzle_flash.Play();
+            isShooting = true;
             shoot();
         }
        

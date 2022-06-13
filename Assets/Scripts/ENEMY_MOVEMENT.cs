@@ -73,11 +73,10 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         if (dist <= look_radius && PLAYER.GetComponent<Player_New>().isRunning)
         {
             isChasing = true;
-
             follow_player();
             look_At_Player();
         }
-        else if(dist >= look_radius && isChasing)
+        else if (dist >= look_radius && isChasing)
         {
             isChasing = false;
             zombie_Patrol();
