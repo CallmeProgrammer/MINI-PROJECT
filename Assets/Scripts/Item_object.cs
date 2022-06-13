@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item_object : MonoBehaviour
 {
     public GameObject Gun;
+    public GameObject image;
+    //public RawImage image;
 
     public static Item_object object_instance;
 
@@ -19,7 +22,7 @@ public class Item_object : MonoBehaviour
         // Start is called before the first frame update
         void Start()
     {
-        
+       // image.SetActive(false);
     }
 
     // Update is called once per frame

@@ -160,8 +160,10 @@ public class Gun : MonoBehaviour
         if(Physics.Raycast(fps_objcam.transform.position, fps_objcam.transform.forward, out hit, obj_range))
         {
             Debug.Log(hit.transform.name);
-            if(hit.transform.gameObject.tag == "Gun" && Input.GetKey(KeyCode.E))
+            Item_object.object_instance.image.SetActive(true);
+            if (hit.transform.gameObject.tag == "Gun" && Input.GetKey(KeyCode.E))
             {
+                Item_object.object_instance.image.SetActive(false);
                 Item_object.object_instance.set_inactive();
             }
         }

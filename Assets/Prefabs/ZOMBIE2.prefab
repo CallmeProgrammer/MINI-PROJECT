@@ -344,6 +344,7 @@ GameObject:
   - component: {fileID: 3092657473497201133}
   - component: {fileID: 3092657473497201132}
   - component: {fileID: 3092657473497201131}
+  - component: {fileID: 5918275939779743837}
   m_Layer: 0
   m_Name: ZOMBIE2
   m_TagString: Untagged
@@ -470,6 +471,29 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5918275939779743837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3092657473497201129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2916d71a7cd6545864bdbb4eba6ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombie2: {fileID: 0}
+  Player: {fileID: 0}
+  Player_pos: {fileID: 0}
+  Deadbody_points: []
+  anim: {fileID: 0}
+  TransformIndex: 0
+  ishunting: 0
+  isfollowing: 0
+  isAttacking: 0
+  Zombie2look_radius: 0
+  curr_state: 
 --- !u!1 &3523348666939452348
 GameObject:
   m_ObjectHideFlags: 0
