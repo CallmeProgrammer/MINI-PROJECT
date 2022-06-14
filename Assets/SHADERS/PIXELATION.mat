@@ -74,7 +74,7 @@ Material:
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
-    - _ph: 12
+    - _ph: 6
     - _pixels: 1080
     - _pw: 1
     m_Colors:
