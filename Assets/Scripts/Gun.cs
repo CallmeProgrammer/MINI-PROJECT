@@ -135,6 +135,10 @@ public class Gun : MonoBehaviour
 
             }
 
+            if(hit.transform.gameObject.GetComponent<Explosive>())
+            {
+                hit.transform.gameObject.GetComponent<Explosive>().Explosion();
+            }
             //Obtaining functions from another script
             Target target = hit.transform.GetComponent<Target>();
             if(target !=null)
