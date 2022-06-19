@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using UnityEngine.InputSystem;
 
 public class Gun : MonoBehaviour
@@ -15,7 +16,6 @@ public class Gun : MonoBehaviour
     public GameObject Bullet_case;
     [Header("Camera for Raycast")]
     public Camera fps_cam;
-    public Camera fps_objcam;
     [Header("Particle System")]
     public ParticleSystem muzzle_flash;
     public float impact_force = 5f;
@@ -25,7 +25,8 @@ public class Gun : MonoBehaviour
     public GameObject Broken_glass;
 
     public GameObject impacteffect;
-
+    public TextMeshProUGUI ammoinfo;
+ 
     public int maxAmmo = 30;
     public int mag_size = 30;
     public int currentAmmo;
@@ -67,6 +68,8 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ammoinfo.text =currentAmmo + " / " + maxAmmo;
+
         if (isreloading)
             return;
 
@@ -85,7 +88,7 @@ public class Gun : MonoBehaviour
         }
        
 
-        obj_detect();
+        
     }
      
     IEnumerator Reload()
@@ -157,28 +160,6 @@ public class Gun : MonoBehaviour
     
         Debug.Log("pressed shoot");
     }
-    public void obj_detect()
-    {
-        RaycastHit hit;
-
-        if(Physics.Raycast(fps_objcam.transform.position, fps_objcam.transform.forward, out hit, obj_range))
-        {
-            Debug.Log(hit.transform.name);
-            Item_object.object_instance.image.SetActive(true);
-            if (hit.transform.gameObject.tag == "Gun" && Input.GetKey(KeyCode.E))
-            {
-                Item_object.object_instance.image.SetActive(false);
-                Item_object.object_instance.set_inactive();
-            }
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(fps_objcam.transform.position, Vector3.right * obj_range);
-    }
-
 
     //NEW INPUTSYSTEM
     private void OnEnable()
