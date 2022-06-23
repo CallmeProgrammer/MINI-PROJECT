@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - Head
   - Gun
+  - Gun1
   layers:
   - Default
   - TransparentFX
