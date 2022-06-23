@@ -44,8 +44,6 @@ public class Short_Gun : MonoBehaviour
     {
       
             currentAmmo = maxAmmo;
-           
-
     }
     public void Awake()
     {
