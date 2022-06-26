@@ -35,7 +35,7 @@ public class Target : MonoBehaviour
     }
     void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
    
 }

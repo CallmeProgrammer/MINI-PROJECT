@@ -5472,9 +5472,10 @@ GameObject:
   - component: {fileID: 1730372616371382334}
   - component: {fileID: 8668588537919590517}
   - component: {fileID: 8668588537919590516}
+  - component: {fileID: -6217858753806875395}
   m_Layer: 12
   m_Name: AK47_Obj
-  m_TagString: Gun
+  m_TagString: GUN
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5546,7 +5547,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6939633484270499906}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50e6f9ee21c289d499a337f9c38955f6, type: 3}
   m_Name: 
@@ -5570,6 +5571,24 @@ MonoBehaviour:
   reloadtime: 1
   isShooting: 0
   anim: {fileID: 0}
+--- !u!114 &-6217858753806875395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6939633484270499906}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.5762776, b: 0, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7104009386067366523
 GameObject:
   m_ObjectHideFlags: 0

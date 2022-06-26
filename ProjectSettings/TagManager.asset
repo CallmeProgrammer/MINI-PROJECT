@@ -11,8 +11,10 @@ TagManager:
   - Door
   - Enemy
   - Head
-  - Gun
-  - Gun1
+  - Knife
+  - Ar_Gun
+  - Short_Gun
+  - GUN
   layers:
   - Default
   - TransparentFX

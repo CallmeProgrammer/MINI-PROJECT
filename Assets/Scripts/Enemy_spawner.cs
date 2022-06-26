@@ -6,19 +6,23 @@ public class Enemy_spawner : MonoBehaviour
 {
     public GameObject[] spawners;
     public GameObject zombie;
+    public GameObject zombie2;
     //public float zombie_count = 1;
-    private int wave_num = 0;
+
     private int zombie_count = 5;
-    private int zombiekill_count = 0;
+   
+
+    
 
     // Start is called before the first frame update
     void Start()
     {
        // spawners = new GameObject[5];
 
-        for(int i = 0; i<=zombie_count; i++)
+        for(int i = 0; i <= zombie_count; i++)
         {
-            Spawn_enemy();   
+            Spawn_enemy();
+         
             //spawners[i] = transform.GetChild(i).gameObject;
         }
     }
@@ -28,7 +32,7 @@ public class Enemy_spawner : MonoBehaviour
     {
       
             //Spawn_enemy();
-       // StartWave();
+       
 
     }
 
@@ -36,30 +40,23 @@ public class Enemy_spawner : MonoBehaviour
     private void Spawn_enemy()
     {
         int spawnersID = Random.Range(0, spawners.Length);
+    
         GameObject Zob=   Instantiate(zombie, spawners[spawnersID].transform.position, spawners[spawnersID].transform.rotation);
+        GameObject Zob1=   Instantiate(zombie2, spawners[spawnersID].transform.position, spawners[spawnersID].transform.rotation);
         Zob.transform.parent = transform;
+        Zob1.transform.parent = transform;
     }
 
-    private void StartWave()
-    {
-        wave_num = 1;
-        zombie_count = 2;
-        zombiekill_count = 0;
-
-        for(int i =0; i<zombie_count; i++)
-        {
-            Spawn_enemy();
-        }
-    }
-    //private void Nextwave()
+    //private void StartWave()
     //{
-    //    wave_num++;
-    //    zombie_count += 2;
+    //    wave_num = 1;
+    //    zombie_count = 2;
     //    zombiekill_count = 0;
 
-    //    for (int i = 0; i < zombie_count; i++)
+    //    for(int i =0; i<zombie_count; i++)
     //    {
     //        Spawn_enemy();
     //    }
     //}
+  
 }

@@ -26,7 +26,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     public bool isAttacking = false;
     public bool isPatroling = false;
     public bool isChasing = false;
-    RaycastHit hit;
+    public RaycastHit hit;
 
     // Start is called before the first frame update
 
@@ -54,11 +54,11 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         if (Physics.Raycast(Ray_point.transform.position, Ray_point.transform.forward, out hit, range))
         {
             if (hit.transform.gameObject.CompareTag("Player"))
-            {
-                Player_Health.health_Instance.take_damage();
+            {         
                 follow_player();
                 look_At_Player();
             }
+          
         }
        
          dist = Vector3.Distance(Player_pos.position, transform.position);
@@ -142,7 +142,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         {
             zombie.isStopped = false;
             playanimstate("ZOMBIE_WALKING");
-            zombie.speed = 1;
+            zombie.speed = 2;
         }
        
         //else if (isAttacking && dist >= zombie.stoppingDistance && dist >= look_radius)

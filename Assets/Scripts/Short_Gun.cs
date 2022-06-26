@@ -29,7 +29,11 @@ public class Short_Gun : MonoBehaviour
     private bool isreloading = false;
     public bool isShooting = false;
 
+    public Vector3 upRecoil;
+    Vector3 originalRotation;
    
+
+    
 
 
 
@@ -42,7 +46,7 @@ public class Short_Gun : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+        originalRotation = transform.localEulerAngles;
             currentAmmo = maxAmmo;
     }
     public void Awake()
@@ -71,8 +75,14 @@ public class Short_Gun : MonoBehaviour
         }
 
         if(Input.GetKey(KeyCode.Mouse0))
-        {
+        { 
+            muzzle_flash.Play();
+            AddRecoil();
             shoot();
+        }
+        else
+        {
+            stopRecoil();
         }
 
     }
@@ -130,7 +140,17 @@ public class Short_Gun : MonoBehaviour
                 target.take_damage(damage * 5);
             }         
             Instantiate(impacteffect, hit.point, Quaternion.LookRotation(hit.normal));
-        }         
+        }    
+    public void AddRecoil()
+    {
+        transform.localEulerAngles += upRecoil;
+    }
+
+    public void stopRecoil()
+    {
+        transform.localEulerAngles = originalRotation;
+    }
+
     }
 
 

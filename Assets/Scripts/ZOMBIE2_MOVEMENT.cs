@@ -40,23 +40,17 @@ public class ZOMBIE2_MOVEMENT : MonoBehaviour
 
         }
         else if(dist <= lookradius)
-        {
-            
+        {          
             attack_player();
         }
 
-        if (Zombie2.transform.position == Prey_points[currentPreyIndex].position)
-        {
-            isPreying = true;
-            isAttacking = false;
-            Zombie2.transform.LookAt(Prey_points[currentPreyIndex]);
-
-        }
+      
     }
     public void attack_player()
     {
 
         look_At_Player();
+        isAttacking=true;
         Zombie2.SetDestination(Player_Position.position);
 
     }
@@ -83,11 +77,13 @@ public class ZOMBIE2_MOVEMENT : MonoBehaviour
     {
         if (isAttacking && dist <= Zombie2.stoppingDistance)
         {
+            
           play_animstate("ZOMBIE_ATTACK") ;
         
         }
         else if(ishunting)
         {
+            Zombie2.speed = 8;
             play_animstate("ZOMBIE_RUNNING");
         }
         else if (isPreying)
