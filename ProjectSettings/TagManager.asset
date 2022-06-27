@@ -12,9 +12,9 @@ TagManager:
   - Enemy
   - Head
   - Knife
-  - Ar_Gun
-  - Short_Gun
   - GUN
+  - AR_GUN
+  - SHORT_GUN
   layers:
   - Default
   - TransparentFX
