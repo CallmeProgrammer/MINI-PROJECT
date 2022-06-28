@@ -146,10 +146,12 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             }
             else if(currentAnimIndex == 1)
             {
+                Debug.Log("Playing next ");
                 playanimstate("ZOMBIE_BITING");
             }
             else if(currentAnimIndex == 2)
             {
+                Debug.Log("Playing next ");
                 playanimstate("ZOMBIE_SCREAM");
             }
             currentAnimIndex = animID;
