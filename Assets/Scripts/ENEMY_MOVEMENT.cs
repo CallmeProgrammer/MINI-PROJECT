@@ -209,4 +209,8 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     {
         inattack = false;
     }
+    public void random_anims1()
+    {
+        inattack = true;
+    }
 }
