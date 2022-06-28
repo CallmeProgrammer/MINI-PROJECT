@@ -16,12 +16,13 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     public Transform[] Target_points;
     private Vector3 zom_distance;
     public int currentTransformIndex;
+    public int currentAnimIndex;
 
     public static ENEMY_MOVEMENT enemy_instance;
 
     public string currentstate;
     public Animator anime;
-
+    public int[] anims;
     //private bool PlayerisinRange = false;
     public bool isAttacking = false;
     public bool isPatroling = false;
@@ -70,17 +71,17 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         }
 
 
-        if (dist <= look_radius && PLAYER.GetComponent<Player_New>().isRunning)
+        if (dist <= look_radius && PLAYER.GetComponent<Player_New>())
         {
             isChasing = true;
             follow_player();
             look_At_Player();
         }
-        else if (dist >= look_radius && isChasing)
-        {
-            isChasing = false;
-            zombie_Patrol();
-        }
+        //else if (dist >= look_radius && isChasing)
+        //{
+        //    isChasing = false;
+        //    zombie_Patrol();
+        //}
 
         //Debug.Log(Distance(Target_points[currentTransformIndex], transform));
         if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
@@ -93,7 +94,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         }
     }
 
-
+    
     public float Distance(Transform from, Transform to)
     {
         return Vector3.Distance(from.position, to.position);
@@ -129,8 +130,21 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
         {
             zombie.isStopped = true;
-            playanimstate("ZOMBIE_ATTACK");
-          
+
+            int animID = Random.Range(0, anims.Length);
+            currentAnimIndex = animID;
+            if (currentAnimIndex == 1)
+            {
+                playanimstate("ZOMBIE_ATTACK");
+            }
+            else if(currentAnimIndex == 2)
+            {
+                playanimstate("ZOMBIE_BITING");
+            }
+            else if(currentAnimIndex == 3)
+            {
+                playanimstate("ZOMBIE_SCREAM");
+            }       
         }
         else if (dist <=look_radius && isChasing)
         {
@@ -175,6 +189,15 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawRay(Ray_point.transform.position,Vector3.forward * range);
     }
-
   
+    
+    public void random_anims()
+    {
+     
+
+     
+
+
+
+    }
 }

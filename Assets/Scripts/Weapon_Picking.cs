@@ -22,7 +22,7 @@ public class Weapon_Picking : MonoBehaviour
     public int ShortGun_count=2;
     
     
-
+    
     public float range = 50f;
     public RaycastHit hit;
     public GameObject Ar_Gun_pos;//Ar GUN
@@ -56,6 +56,10 @@ public class Weapon_Picking : MonoBehaviour
 
         Ar_Gun_pos.GetComponent<Gun>().enabled = false;
         Short_Gun_pos.GetComponent<Short_Gun>().enabled = false;
+
+        Ar_Gun_pos.GetComponent<Rigidbody>().isKinematic = true;
+        Short_Gun_pos.GetComponent<Rigidbody>().isKinematic = true;
+        Knife_pos.GetComponent<Rigidbody>().isKinematic = true;
 
     }
 
@@ -95,6 +99,11 @@ public class Weapon_Picking : MonoBehaviour
                 Ar_Gun.SetActive(false);
                 AR_GUN();
             }
+            else if(hit.transform.tag == "AR_GUN" && Input.GetKey(KeyCode.F))
+            {
+                isAr_GunPicked = false;
+                Ar_Gun_pos.GetComponent<Rigidbody>().isKinematic = false;
+            }
 
             if (hit.transform.tag == "SHORT_GUN" && Input.GetKey(KeyCode.E))
             {
@@ -107,6 +116,15 @@ public class Weapon_Picking : MonoBehaviour
                 Short_Gun.SetActive(false);
                 SHORT_GUN();
             }
+            else if (hit.transform.tag == "SHORT_GUN" && Input.GetKey(KeyCode.F))
+            {
+                isShort_GunPicked = false;
+                Short_Gun_pos.GetComponent<Rigidbody>().isKinematic = false;
+            }
+
+
+
+
         }
 
         }
