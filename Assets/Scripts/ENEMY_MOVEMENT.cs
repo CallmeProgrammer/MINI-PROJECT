@@ -207,11 +207,6 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     
     public void random_anims()
     {
-     
-
-     
-
-
-
+        inattack = false;
     }
 }
