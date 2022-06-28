@@ -140,21 +140,21 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             if (currentAnimIndex == 1)
             {
                 inattack = true;
-                Debug.Log("Playing next ");
+                Debug.Log("Playing ATTACK ");
                 playanimstate("ZOMBIE_ATTACK");
                 inattack = false;
             }
             else if(currentAnimIndex == 2)
             {
                 inattack = true;
-                Debug.Log("Playing next ");
+                Debug.Log("Playing BITING ");
                 playanimstate("ZOMBIE_BITING");
                 inattack = false;
             }
             else if(currentAnimIndex == 3)
             {
                 inattack = true;
-                Debug.Log("Playing next ");
+                Debug.Log("Playing SCREAM ");
                 playanimstate("ZOMBIE_SCREAM");
                 inattack = false;
             }
