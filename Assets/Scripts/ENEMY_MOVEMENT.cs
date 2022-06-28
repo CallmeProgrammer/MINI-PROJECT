@@ -135,24 +135,28 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
         {
             zombie.isStopped = true;
-            int animID = Random.Range(0, 4);
+            int animID = Random.Range(1, 4);
       
-            if (currentAnimIndex == 0)
+            if (currentAnimIndex == 1)
             {
                 inattack = true;
                 Debug.Log("Playing next ");
                 playanimstate("ZOMBIE_ATTACK");
                 inattack = false;
             }
-            else if(currentAnimIndex == 1)
-            {
-                Debug.Log("Playing next ");
-                playanimstate("ZOMBIE_BITING");
-            }
             else if(currentAnimIndex == 2)
             {
+                inattack = true;
+                Debug.Log("Playing next ");
+                playanimstate("ZOMBIE_BITING");
+                inattack = false;
+            }
+            else if(currentAnimIndex == 3)
+            {
+                inattack = true;
                 Debug.Log("Playing next ");
                 playanimstate("ZOMBIE_SCREAM");
+                inattack = false;
             }
             currentAnimIndex = animID;
         }
