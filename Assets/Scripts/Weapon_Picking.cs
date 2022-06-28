@@ -71,21 +71,43 @@ public class Weapon_Picking : MonoBehaviour
         if (Physics.Raycast(obj_cam.transform.position, obj_cam.transform.forward, out hit, range))
         {
             //Gun Picking
-            if (hit.transform.GetComponent<Outline>())
+            if (hit.transform.tag == "AR_GUN")
             {
                 ishitting = true;
                 UI_Manager.UI_instance.enable_select_txt();
-                Ar_Gun.GetComponent<Outline>().enabled = true;
+                Ar_Gun.GetComponent<Outline>().enabled = true;              
+            }
+            else
+            {
+                UI_Manager.UI_instance.disable_select_txt();
+                Ar_Gun.GetComponent<Outline>().enabled = false;            
+            }
+
+            if(hit.transform.tag == "SHORT_GUN")
+            {
+                ishitting = true;
+                UI_Manager.UI_instance.enable_select_txt();
                 Short_Gun.GetComponent<Outline>().enabled = true;
+            }
+            else
+            {
+                UI_Manager.UI_instance.disable_select_txt();
+                Short_Gun.GetComponent<Outline>().enabled = false;
+            }
+
+            if (hit.transform.tag == "Knife")
+            {
+                ishitting = true;
+                UI_Manager.UI_instance.enable_select_txt();
                 Knife.GetComponent<Outline>().enabled = true;
             }
             else
             {
                 UI_Manager.UI_instance.disable_select_txt();
-                Ar_Gun.GetComponent<Outline>().enabled = false;
-                Short_Gun.GetComponent<Outline>().enabled = false;
                 Knife.GetComponent<Outline>().enabled = false;
             }
+
+  
             Debug.Log(hit.transform.name);
 
             if(hit.transform.tag == "AR_GUN" && Input.GetKey(KeyCode.E))              
@@ -99,10 +121,12 @@ public class Weapon_Picking : MonoBehaviour
                 Ar_Gun.SetActive(false);
                 AR_GUN();
             }
-            else if(hit.transform.tag == "AR_GUN" && Input.GetKey(KeyCode.F))
+            else if(isAr_GunPicked && Input.GetKey(KeyCode.F))
             {
                 isAr_GunPicked = false;
+                Ar_Gun_pos.transform.parent = null;
                 Ar_Gun_pos.GetComponent<Rigidbody>().isKinematic = false;
+                Ar_Gun_pos.GetComponent<Gun>().enabled = false;
             }
 
             if (hit.transform.tag == "SHORT_GUN" && Input.GetKey(KeyCode.E))
@@ -116,10 +140,12 @@ public class Weapon_Picking : MonoBehaviour
                 Short_Gun.SetActive(false);
                 SHORT_GUN();
             }
-            else if (hit.transform.tag == "SHORT_GUN" && Input.GetKey(KeyCode.F))
+            else if (isShort_GunPicked && Input.GetKey(KeyCode.F))
             {
                 isShort_GunPicked = false;
+                Short_Gun_pos.transform.parent = null;
                 Short_Gun_pos.GetComponent<Rigidbody>().isKinematic = false;
+                Short_Gun_pos.GetComponent<Short_Gun>().enabled = false;
             }
 
 

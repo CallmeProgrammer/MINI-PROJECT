@@ -76,10 +76,11 @@ public class ENEMY_MOVEMENT : MonoBehaviour
 
 
         if (dist <= look_radius && PLAYER.GetComponent<Player_New>())
-        {
-            isChasing = true;
+        {  
             follow_player();
             look_At_Player();
+            isChasing = true;
+          
         }
         //else if (dist >= look_radius && isChasing)
         //{
@@ -117,10 +118,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     public void zombie_Patrol()
     {
         int targetID = Random.Range(0, Target_points.Length);
-        //if (currentTransformIndex == targetID)
-        //{
-        //    targetID = targetID==Target_points.Length ? targetID - 1 : targetID + 1;
-        //}
+     
         zombie.SetDestination(Target_points[targetID].position);
         zombie.transform.LookAt(Target_points[targetID].position);
         currentTransformIndex = targetID;
@@ -128,10 +126,6 @@ public class ENEMY_MOVEMENT : MonoBehaviour
 
     public void updateanimation()
     {
-        //if (ENEMY_MOVEMENT.enemy_instance.isPatroling && ENEMY_MOVEMENT.enemy_instance.currentTransformIndex >= 0)
-        //{
-        //    playanimstate("ZOMBIE_WALKING");
-        //}
         if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
         {
             zombie.isStopped = true;
