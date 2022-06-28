@@ -28,7 +28,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     public bool isPatroling = false;
     public bool isChasing = false;
     public RaycastHit hit;
-
+    public bool inattack;
     // Start is called before the first frame update
 
     public void Awake()
@@ -125,7 +125,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         zombie.transform.LookAt(Target_points[targetID].position);
         currentTransformIndex = targetID;
     }
-    public bool inattack;
+
     public void updateanimation()
     {
         //if (ENEMY_MOVEMENT.enemy_instance.isPatroling && ENEMY_MOVEMENT.enemy_instance.currentTransformIndex >= 0)
