@@ -50,7 +50,11 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateanimation();
+        if(!inattack)
+        {
+            updateanimation();
+        }
+      
         attack_radius = zombie.stoppingDistance;
         if (Physics.Raycast(Ray_point.transform.position, Ray_point.transform.forward, out hit, range))
         {
@@ -121,6 +125,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         zombie.transform.LookAt(Target_points[targetID].position);
         currentTransformIndex = targetID;
     }
+    public bool inattack;
     public void updateanimation()
     {
         //if (ENEMY_MOVEMENT.enemy_instance.isPatroling && ENEMY_MOVEMENT.enemy_instance.currentTransformIndex >= 0)
@@ -130,21 +135,24 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
         {
             zombie.isStopped = true;
-
-            int animID = Random.Range(0, anims.Length);
-            currentAnimIndex = animID;
-            if (currentAnimIndex == 1)
+            int animID = Random.Range(0, 4);
+      
+            if (currentAnimIndex == 0)
             {
+                inattack = true;
+                Debug.Log("Playing next ");
                 playanimstate("ZOMBIE_ATTACK");
+                inattack = false;
             }
-            else if(currentAnimIndex == 2)
+            else if(currentAnimIndex == 1)
             {
                 playanimstate("ZOMBIE_BITING");
             }
-            else if(currentAnimIndex == 3)
+            else if(currentAnimIndex == 2)
             {
                 playanimstate("ZOMBIE_SCREAM");
-            }       
+            }
+            currentAnimIndex = animID;
         }
         else if (dist <=look_radius && isChasing)
         {
