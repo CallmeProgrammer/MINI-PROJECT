@@ -28,7 +28,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     public bool isPatroling = false;
     public bool isChasing = false;
     public RaycastHit hit;
-    public bool inattack;
+    public bool inattack =false;
     // Start is called before the first frame update
 
     public void Awake()
