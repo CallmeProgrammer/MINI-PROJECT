@@ -126,7 +126,11 @@ public class ENEMY_MOVEMENT : MonoBehaviour
 
     public void updateanimation()
     {
-        if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
+        if (Target.target_instance.isDead == true)
+        {
+            playanimstate("ZOMBIE_DIE");
+        }
+        else if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
         {
             zombie.isStopped = true;
             int animID = Random.Range(1, 4);
@@ -142,14 +146,14 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             {
                 inattack = true;
                 Debug.Log("Playing BITING ");
-                playanimstate("ZOMBIE_BITING");
+                playanimstate("ZOMBIE_ATTACK2");
                 inattack = false;
             }
             else if(currentAnimIndex == 3)
             {
                 inattack = true;
                 Debug.Log("Playing SCREAM ");
-                playanimstate("ZOMBIE_SCREAM");
+                playanimstate("ZOMBIE_KICKING");
                 inattack = false;
             }
             currentAnimIndex = animID;
@@ -166,6 +170,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             playanimstate("ZOMBIE_WALKING");
             zombie.speed = 2;
         }
+        
        
         //else if (isAttacking && dist >= zombie.stoppingDistance && dist >= look_radius)
         //{

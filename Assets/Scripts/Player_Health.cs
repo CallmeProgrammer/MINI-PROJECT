@@ -7,15 +7,24 @@ public class Player_Health : MonoBehaviour
 {
     public float health = 100;
     private float damage = 2;
-    public GameObject Damage_screen;
+    //public GameObject Damage_screen;
     public bool isnot_hurting;
     public static Player_Health health_Instance;
 
 
     // Start is called before the first frame update
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            Debug.Log("is hitting");
+            //take_damage();
+        }
+    }
     void Start()
     {
-      Damage_screen.SetActive(false);
+      //Damage_screen.SetActive(false);
     }
     public void Awake()
     {
@@ -36,35 +45,11 @@ public class Player_Health : MonoBehaviour
         }
 
 
-        if (ENEMY_MOVEMENT.enemy_instance.hit.transform.gameObject.CompareTag("Player"))
-        {
-            ENEMY_MOVEMENT.enemy_instance.follow_player();
-            ENEMY_MOVEMENT.enemy_instance.look_At_Player();
-            take_damage();
-        }
-        else if (ENEMY_MOVEMENT.enemy_instance.dist <= ENEMY_MOVEMENT.enemy_instance.attack_radius)
-        {
-            var color = Damage_screen.GetComponent<Image>().color;
-            color.a -= 0f;
-            Damage_screen.GetComponent<Image>().color = color;
-
-            Damage_screen.SetActive(false);
-        }
-        //if (Damage_screen.GetComponent<Image>().color.a > 0)
-        //{
-        //    isnot_hurting = true;
-        //    var color = Damage_screen.GetComponent<Image>().color;
-        //    color.a -= 0f;
-        //}
     }
     public void take_damage()
     {
         health -= damage;
-        Damage_screen.SetActive(true);
-        var color = Damage_screen.GetComponent<Image>().color;
-        color.a += 76;
-        Damage_screen.GetComponent<Image>().color = color;
-
     }
+    
   
 }

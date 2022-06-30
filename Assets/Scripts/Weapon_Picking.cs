@@ -71,7 +71,7 @@ public class Weapon_Picking : MonoBehaviour
         if (Physics.Raycast(obj_cam.transform.position, obj_cam.transform.forward, out hit, range))
         {
             //Gun Picking
-            if (hit.transform.tag == "AR_GUN")
+            if(hit.transform.tag == "AR_GUN")
             {
                 ishitting = true;
                 UI_Manager.UI_instance.enable_select_txt();

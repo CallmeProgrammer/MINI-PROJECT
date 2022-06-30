@@ -25,6 +25,7 @@ public class Gun : MonoBehaviour
     public GameObject Broken_glass;
 
     public GameObject impacteffect;
+    public GameObject Bloodeffect;
     public TextMeshProUGUI ammoinfo;
  
     public int maxAmmo = 30;
@@ -155,6 +156,11 @@ public class Gun : MonoBehaviour
             }
           
             Instantiate(impacteffect, hit.point, Quaternion.LookRotation(hit.normal));
+
+            if(hit.transform.tag == "Zombie")
+            {
+                Instantiate(Bloodeffect, hit.point, Quaternion.LookRotation(hit.normal));
+            }
 
         }
     
