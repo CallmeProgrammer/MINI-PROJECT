@@ -34,13 +34,14 @@ public class Gun : MonoBehaviour
     public float reloadtime = 1f;
     private bool isreloading = false;
     public bool isShooting = false;
+    public bool isZombie_hitting = false;
 
     public Animator anim;
 
+    public RaycastHit hit;
 
 
 
-    
     //public Transform bulletcase_pos;
 
     public static Gun Gun_instance;
@@ -159,6 +160,7 @@ public class Gun : MonoBehaviour
 
             if(hit.transform.tag == "Zombie")
             {
+                isZombie_hitting = true;
                 Instantiate(Bloodeffect, hit.point, Quaternion.LookRotation(hit.normal));
             }
 

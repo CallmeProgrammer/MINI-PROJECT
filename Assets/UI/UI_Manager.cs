@@ -20,7 +20,7 @@ public class UI_Manager : MonoBehaviour
     }
     void Start()
     {
-        Weapon_select_text.SetActive(false);
+        disable_select_txt();
     }
 
     // Update is called once per frame

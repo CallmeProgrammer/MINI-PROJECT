@@ -52,7 +52,7 @@ public class Explosive : MonoBehaviour
 
         }
         Instantiate(Explosion_Effect, transform.position, transform.rotation);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
 
       
     }

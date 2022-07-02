@@ -126,6 +126,10 @@ public class ENEMY_MOVEMENT : MonoBehaviour
 
     public void updateanimation()
     {
+        //if (Gun.Gun_instance.isZombie_hitting/*|| Short_Gun.Gun_instance.hit.transform.tag == "Zombie"*/)
+        //{
+        //    playanimstate("ZOMBIE_HIT");
+        //}
         if (Target.target_instance.isDead == true)
         {
             playanimstate("ZOMBIE_DIE");
@@ -158,6 +162,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             }
             currentAnimIndex = animID;
         }
+      
         else if (dist <=look_radius && isChasing)
         {
             zombie.isStopped = false;
@@ -170,8 +175,10 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             playanimstate("ZOMBIE_WALKING");
             zombie.speed = 2;
         }
-        
        
+        
+      
+
         //else if (isAttacking && dist >= zombie.stoppingDistance && dist >= look_radius)
         //{
         //    playanimstate("ZOMBIE_WALKING");

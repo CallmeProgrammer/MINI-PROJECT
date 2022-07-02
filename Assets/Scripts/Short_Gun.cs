@@ -31,14 +31,16 @@ public class Short_Gun : MonoBehaviour
 
     public Vector3 upRecoil;
     Vector3 originalRotation;
-   
 
-    
-
+    public RaycastHit hit;
 
 
 
-    
+
+
+
+
+
     //public Transform bulletcase_pos;
 
     public static Short_Gun Gun_instance;
@@ -109,7 +111,7 @@ public class Short_Gun : MonoBehaviour
     public void shoot()
     {
        //Declaring Raycast
-        RaycastHit hit;
+        
         currentAmmo--;
             //Checking Whether it is hitting an object or not
             if(Physics.Raycast(fps_cam.transform.position, fps_cam.transform.forward, out hit, range))     
