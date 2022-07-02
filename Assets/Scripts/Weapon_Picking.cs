@@ -75,11 +75,13 @@ public class Weapon_Picking : MonoBehaviour
             {
                 ishitting = true;
                 UI_Manager.UI_instance.enable_select_txt();
+                UI_Manager.UI_instance.enable_Ar_Icon();
                 Ar_Gun.GetComponent<Outline>().enabled = true;              
             }
             else
             {
                 UI_Manager.UI_instance.disable_select_txt();
+                UI_Manager.UI_instance.disable_Ar_Icon();
                 Ar_Gun.GetComponent<Outline>().enabled = false;            
             }
 
@@ -87,11 +89,13 @@ public class Weapon_Picking : MonoBehaviour
             {
                 ishitting = true;
                 UI_Manager.UI_instance.enable_select_txt();
+                UI_Manager.UI_instance.enable_Shortgun_Icon();
                 Short_Gun.GetComponent<Outline>().enabled = true;
             }
             else
             {
                 UI_Manager.UI_instance.disable_select_txt();
+                UI_Manager.UI_instance.disable_Shortgun_Icon();
                 Short_Gun.GetComponent<Outline>().enabled = false;
             }
 
