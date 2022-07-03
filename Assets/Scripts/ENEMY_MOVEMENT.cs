@@ -126,10 +126,6 @@ public class ENEMY_MOVEMENT : MonoBehaviour
 
     public void updateanimation()
     {
-        //if (Gun.Gun_instance.isZombie_hitting/*|| Short_Gun.Gun_instance.hit.transform.tag == "Zombie"*/)
-        //{
-        //    playanimstate("ZOMBIE_HIT");
-        //}
         if (Target.target_instance.isDead == true)
         {
             playanimstate("ZOMBIE_DIE");
@@ -162,19 +158,20 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             }
             currentAnimIndex = animID;
         }
-      
-        else if (dist <=look_radius && isChasing)
+        else if (dist <= look_radius && isChasing)
         {
             zombie.isStopped = false;
             playanimstate("ZOMBIE_RUNNING");
             zombie.speed = 10;
         }
-        else if (dist >= look_radius &&isChasing == false)
+        else if (dist >= look_radius && isChasing == false)
         {
             zombie.isStopped = false;
             playanimstate("ZOMBIE_WALKING");
             zombie.speed = 2;
         }
+      
+       
        
         
       
@@ -207,7 +204,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(Ray_point.transform.position,Vector3.forward * range);
+        Gizmos.DrawRay(Ray_point.transform.position,Vector3.forward* -1 * range);
     }
   
     

@@ -8,6 +8,9 @@ public class UI_Manager : MonoBehaviour
     public GameObject Weapon_select_text;
     public GameObject Ar_GunIcon;
     public GameObject Short_GunIcon;
+    public GameObject PlayerDamage_Screen;
+    public GameObject Player_healthPanel;
+    
 
     public static UI_Manager UI_instance;
     // Start is called before the first frame update
@@ -59,5 +62,9 @@ public class UI_Manager : MonoBehaviour
         Short_GunIcon.SetActive(false);
     }
 
-
+   
+    //public void Damage_Screen()
+    //{
+    //    PlayerDamage_Screen.GetComponent<RawImage>().color.a=
+    //}
 }

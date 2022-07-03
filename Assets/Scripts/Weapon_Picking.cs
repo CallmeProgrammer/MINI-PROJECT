@@ -75,13 +75,13 @@ public class Weapon_Picking : MonoBehaviour
             {
                 ishitting = true;
                 UI_Manager.UI_instance.enable_select_txt();
-                UI_Manager.UI_instance.enable_Ar_Icon();
+               
                 Ar_Gun.GetComponent<Outline>().enabled = true;              
             }
             else
             {
                 UI_Manager.UI_instance.disable_select_txt();
-                UI_Manager.UI_instance.disable_Ar_Icon();
+                
                 Ar_Gun.GetComponent<Outline>().enabled = false;            
             }
 
@@ -89,13 +89,13 @@ public class Weapon_Picking : MonoBehaviour
             {
                 ishitting = true;
                 UI_Manager.UI_instance.enable_select_txt();
-                UI_Manager.UI_instance.enable_Shortgun_Icon();
+                
                 Short_Gun.GetComponent<Outline>().enabled = true;
             }
             else
             {
                 UI_Manager.UI_instance.disable_select_txt();
-                UI_Manager.UI_instance.disable_Shortgun_Icon();
+                
                 Short_Gun.GetComponent<Outline>().enabled = false;
             }
 
@@ -121,6 +121,7 @@ public class Weapon_Picking : MonoBehaviour
                 {
                     Short_Gun_pos.SetActive(false);
                     Ar_Gun_pos.SetActive(true);
+                   
                 }
                 Ar_Gun.SetActive(false);
                 AR_GUN();
@@ -129,6 +130,7 @@ public class Weapon_Picking : MonoBehaviour
             {
                 isAr_GunPicked = false;
                 Ar_Gun_pos.transform.parent = null;
+                UI_Manager.UI_instance.disable_Ar_Icon();
                 Ar_Gun_pos.GetComponent<Rigidbody>().isKinematic = false;
                 Ar_Gun_pos.GetComponent<Gun>().enabled = false;
             }
@@ -140,6 +142,7 @@ public class Weapon_Picking : MonoBehaviour
                 {
                     Short_Gun_pos.SetActive(true);
                     Ar_Gun_pos.SetActive(false);
+                    
                 }
                 Short_Gun.SetActive(false);
                 SHORT_GUN();
@@ -148,6 +151,7 @@ public class Weapon_Picking : MonoBehaviour
             {
                 isShort_GunPicked = false;
                 Short_Gun_pos.transform.parent = null;
+                UI_Manager.UI_instance.disable_Shortgun_Icon();
                 Short_Gun_pos.GetComponent<Rigidbody>().isKinematic = false;
                 Short_Gun_pos.GetComponent<Short_Gun>().enabled = false;
             }
@@ -181,11 +185,13 @@ public class Weapon_Picking : MonoBehaviour
     public void AR_GUN()
     {
         Ar_Gun_pos.GetComponent<Gun>().enabled = true;
+        UI_Manager.UI_instance.enable_Ar_Icon();
         Ar_Gun_pos.SetActive(true);
     }
     public void SHORT_GUN()
     {
         Short_Gun_pos.GetComponent<Short_Gun>().enabled = true;
+        UI_Manager.UI_instance.enable_Shortgun_Icon();
         Short_Gun_pos.SetActive(true);
     }
     public void KNIFE()

@@ -6,7 +6,7 @@ public class Target : MonoBehaviour
 {
 
     public float health = 100f;
-    public bool isDead;
+    public bool isDead = false;
     public static Target target_instance;
 
     public void Awake()

@@ -1334,7 +1334,7 @@ MonoBehaviour:
     overrideState: 1
     value: 0.25
   color:
-    overrideState: 0
+    overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
   ambientOnly:
     overrideState: 0
@@ -1378,7 +1378,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 3
+    value: 10
   threshold:
     overrideState: 1
     value: 0.24
@@ -1396,7 +1396,7 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0.9245283, g: 0.84951943, b: 0.84951943, a: 1}
+    value: {r: 0.745283, g: 0.7329263, b: 0.7129406, a: 1}
   fastMode:
     overrideState: 0
     value: 0
@@ -1427,8 +1427,8 @@ MonoBehaviour:
     overrideState: 1
     value: 360
   sampleCount:
-    overrideState: 0
-    value: 10
+    overrideState: 1
+    value: 15
 --- !u!114 &-634180116004253639
 MonoBehaviour:
   m_ObjectHideFlags: 3
