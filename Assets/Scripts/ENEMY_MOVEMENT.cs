@@ -75,7 +75,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         }
 
 
-        if (dist <= look_radius && PLAYER.GetComponent<Player_New>())
+       if (dist <= look_radius && PLAYER.GetComponent<Player_New>())
         {  
             follow_player();
             look_At_Player();
@@ -113,7 +113,8 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     }
     public void follow_player()
     {
-        zombie.SetDestination(Player_pos.position);
+        //zombie.SetDestination(Player_pos.position);
+        zombie.destination = Player_pos.position;
     }
     public void zombie_Patrol()
     {

@@ -24,9 +24,9 @@ public class Target : MonoBehaviour
         {
     
             isDead = true;
-            //Die();
+            Die();
 
-               
+
         }
         else
         {
