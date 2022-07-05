@@ -157,6 +157,13 @@ public class ENEMY_MOVEMENT : MonoBehaviour
                 playanimstate("ZOMBIE_KICKING");
                 inattack = false;
             }
+            else if(currentAnimIndex == 4)
+            {
+                inattack = true;
+                Debug.Log("Playing SCREAM");
+                playanimstate("ZOMBIE_ATTACK3");
+                inattack = false;
+            }
             currentAnimIndex = animID;
         }
         else if (dist <= look_radius && isChasing)
