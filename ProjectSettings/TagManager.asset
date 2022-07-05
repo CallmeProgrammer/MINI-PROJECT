@@ -16,6 +16,7 @@ TagManager:
   - AR_GUN
   - SHORT_GUN
   - Bomb
+  - Cube
   layers:
   - Default
   - TransparentFX

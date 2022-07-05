@@ -24,7 +24,18 @@ public class Player_New : MonoBehaviour
     private bool isGrounded;
     public bool isRunning;
 
-  
+    public Transform Pos;
+    public GameObject PlayNEW;
+  public static Player_New Player_instance;
+
+    private void Awake()
+    {
+        if(Player_instance != null)
+        {
+            return;
+        }
+        Player_instance = this;
+    }
     Vector3 velocity;
     // Start is called before the first frame update
     void Start()

@@ -45,6 +45,11 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         zombie = GetComponent<NavMeshAgent>();
         playanimstate("ZOMBIE_WALKING");
         zombie_Patrol();
+
+        Player_pos = GetComponent<Player_New>().Pos;
+        PLAYER = GetComponent<Player_New>().PlayNEW;
+        
+       
     }
 
     // Update is called once per frame
@@ -114,6 +119,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     public void follow_player()
     {
         //zombie.SetDestination(Player_pos.position);
+        isPatroling = false;
         zombie.destination = Player_pos.position;
     }
     public void zombie_Patrol()
@@ -166,18 +172,19 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             }
             currentAnimIndex = animID;
         }
-        else if (dist <= look_radius && isChasing)
+        //else if (dist >= look_radius && isChasing == false)
+        //{
+        //    //zombie.isStopped = false;
+        //    playanimstate("ZOMBIE_WALKING");
+        //    zombie.speed = 2;
+        //}
+        else if (dist <= look_radius && isChasing )
         {
             zombie.isStopped = false;
             playanimstate("ZOMBIE_RUNNING");
             zombie.speed = 10;
         }
-        else if (dist >= look_radius && isChasing == false)
-        {
-            zombie.isStopped = false;
-            playanimstate("ZOMBIE_WALKING");
-            zombie.speed = 2;
-        }
+       
       
        
        
