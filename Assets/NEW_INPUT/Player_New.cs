@@ -8,7 +8,7 @@ public class Player_New : MonoBehaviour
     public CharacterController char_con;
 
     [Header("Player speed")]
-    public float speed = 12f;
+    public float speed = 10f;
     public float sprintspeed = 2;
 
     [Header("Player gravity attributes")]
@@ -71,7 +71,7 @@ public class Player_New : MonoBehaviour
         if(Input.GetKey(KeyCode.LeftShift))
         {
             isRunning = true;
-            char_con.Move(move * speed * sprintspeed * Time.deltaTime);
+            char_con.Move(move * speed* sprintspeed * Time.deltaTime);
         }
 
       

@@ -26,7 +26,7 @@ public class Target : MonoBehaviour
         {
     
             isDead = true;
-            //Spawners.Spawners_instance.Zombie_Amount--;
+            Spawners.Spawners_instance.Zombie_Amount--;
             Die();
         }
         else

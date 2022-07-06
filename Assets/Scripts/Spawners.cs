@@ -11,6 +11,7 @@ public class Spawners : MonoBehaviour
     public int Zombie_Amount=5;
     public int range=10;
     public int Zombie_Count;
+    public int No_of_Zombies = 30;
 
     public static Spawners Spawners_instance;
     // Start is called before the first frame update
@@ -28,24 +29,25 @@ public class Spawners : MonoBehaviour
 
         for (int i = 0; i <= Zombie_Amount; i++)
         {
-            //Zombie_Count = Zombie_Amount;
-            Spawn_enemy();
+
+            //Spawn_enemy();
+            InvokeRepeating("Spawn_enemy", 60, 1);
         }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(Target.target_instance.isDead)
+        if (Zombie_Amount <= 0)
         {
-            Zombie_Amount--;
+            CancelInvoke("Spawn_enemy");
+            Debug.Log("Limit Reached");
         }
-
-       if(Zombie_Amount <= 0)
-        {
-            Zombie_Amount = 5;
-            Wave1();
-        }
+        //else
+        //{
+        //    InvokeRepeating("Spawn_enemy", 2, 5);
+        //}
 
     }
     private void Spawn_enemy()
@@ -58,12 +60,12 @@ public class Spawners : MonoBehaviour
     }
     public void Wave1()
     {
-       
-            for (int i = 0; i <= Zombie_Amount; i++)
-            {
-                Spawn_enemy();
-            }
-        
+
+        for (int i = 0; i <= Zombie_Amount; i++)
+        {
+            Spawn_enemy();
+        }
+
     }
-        
+
 }

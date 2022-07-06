@@ -46,8 +46,8 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         playanimstate("ZOMBIE_WALKING");
         zombie_Patrol();
 
-        Player_pos = GetComponent<Player_New>().Pos;
-        PLAYER = GetComponent<Player_New>().PlayNEW;
+        //Player_pos = GetComponent<Player_New>().Pos;
+        //PLAYER = GetComponent<Player_New>().PlayNEW;
         
        
     }
