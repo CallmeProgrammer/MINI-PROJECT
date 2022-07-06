@@ -8,6 +8,8 @@ public class Target : MonoBehaviour
     public float health = 100f;
     public bool isDead = false;
     public static Target target_instance;
+    public int zom_num;
+    
 
     public void Awake()
     {
@@ -24,9 +26,8 @@ public class Target : MonoBehaviour
         {
     
             isDead = true;
+            //Spawners.Spawners_instance.Zombie_Amount--;
             Die();
-
-
         }
         else
         {
@@ -36,6 +37,7 @@ public class Target : MonoBehaviour
     void Die()
     {
         gameObject.SetActive(false);
+
     }
-   
+
 }

@@ -527,6 +527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   isDead: 0
+  zom_num: 0
 --- !u!114 &4252165138928064946
 MonoBehaviour:
   m_ObjectHideFlags: 0
