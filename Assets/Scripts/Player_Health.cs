@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Player_Health : MonoBehaviour
 {
-    public float health = 100;
+    public float health = 1000;
     public float damage = 2;
     public bool isnot_hurting;
     public static Player_Health health_Instance;
