@@ -17,8 +17,8 @@ GameObject:
   m_Name: Cube_cell.024
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &8985062439343842316
 Transform:
@@ -131,8 +131,8 @@ GameObject:
   m_Name: Cube_cell.001_cell
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &1748024859122003814
 Transform:
@@ -245,8 +245,8 @@ GameObject:
   m_Name: Cube_cell.034
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &785611896639376445
 Transform:
@@ -359,8 +359,8 @@ GameObject:
   m_Name: Cube_cell.022
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &8736945908914149545
 Transform:
@@ -466,12 +466,13 @@ GameObject:
   m_Component:
   - component: {fileID: 67147731647624521}
   - component: {fileID: 8206677807883122998}
+  - component: {fileID: 2199863766750666006}
   m_Layer: 0
   m_Name: ROOM_GLASS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &67147731647624521
 Transform:
@@ -482,7 +483,7 @@ Transform:
   m_GameObject: {fileID: 839180453190840307}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 112.11, y: 25.443392, z: -146.92}
-  m_LocalScale: {x: 0.115228236, y: 3.2193935, z: 1.0378002}
+  m_LocalScale: {x: 0.057085972, y: 2.5336998, z: 1.1781551}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3791793475950308908}
@@ -504,6 +505,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Normal_glass: {fileID: 930086167081853126}
   Broken_glass: {fileID: 6442026079293424030}
+--- !u!23 &2199863766750666006
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839180453190840307}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &930086167081853126
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,8 +564,8 @@ GameObject:
   m_Name: Glass_normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &3791793475950308908
 Transform:
@@ -532,8 +575,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930086167081853126}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: -0.06, z: 7.02}
-  m_LocalScale: {x: 3.0065124, y: 796.2544, z: 456.89688}
+  m_LocalPosition: {x: -2.5, y: 0.69, z: 8.43}
+  m_LocalScale: {x: 2.8736546, y: 615.5365, z: 527.7276}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 67147731647624521}
@@ -633,8 +676,8 @@ GameObject:
   m_Name: Cube_cell.005_cell
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &3556904492838713819
 Transform:
@@ -747,8 +790,8 @@ GameObject:
   m_Name: Cube_cell.010
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &7525048318311208477
 Transform:
@@ -861,8 +904,8 @@ GameObject:
   m_Name: Cube_cell.016
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &4416315945127126836
 Transform:
@@ -975,8 +1018,8 @@ GameObject:
   m_Name: Cube_cell.005_cell.002
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &6746782424336016865
 Transform:
@@ -1089,8 +1132,8 @@ GameObject:
   m_Name: Cube_cell.036
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &2337727613519369531
 Transform:
@@ -1203,8 +1246,8 @@ GameObject:
   m_Name: Cube_cell.019
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &2962643915746896484
 Transform:
@@ -1317,8 +1360,8 @@ GameObject:
   m_Name: Cube_cell.004
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &9000368561073137237
 Transform:
@@ -1431,8 +1474,8 @@ GameObject:
   m_Name: Cube_cell.023
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &2827195747341009966
 Transform:
@@ -1545,8 +1588,8 @@ GameObject:
   m_Name: Cube_cell.032
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &2360484731492506939
 Transform:
@@ -1659,8 +1702,8 @@ GameObject:
   m_Name: Cube_cell.007_cell.004
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &6742835169716594066
 Transform:
@@ -1773,8 +1816,8 @@ GameObject:
   m_Name: Cube_cell.007_cell.001
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &8884325192498921160
 Transform:
@@ -1887,8 +1930,8 @@ GameObject:
   m_Name: Cube_cell.017
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &6250993969148296285
 Transform:
@@ -2001,8 +2044,8 @@ GameObject:
   m_Name: Cube_cell.006
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &5218959151676448511
 Transform:
@@ -2115,8 +2158,8 @@ GameObject:
   m_Name: Cube_cell.005_cell.003
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &5365420975552458614
 Transform:
@@ -2229,8 +2272,8 @@ GameObject:
   m_Name: Cube_cell.003
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &3073044583712238491
 Transform:
@@ -2343,8 +2386,8 @@ GameObject:
   m_Name: Cube_cell.005_cell.001
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &3600402408378288568
 Transform:
@@ -2457,8 +2500,8 @@ GameObject:
   m_Name: Cube_cell.005_cell.004
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &1568919401493840728
 Transform:
@@ -2571,8 +2614,8 @@ GameObject:
   m_Name: Cube_cell_cell.001
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &7110445625774207063
 Transform:
@@ -2685,8 +2728,8 @@ GameObject:
   m_Name: Cube_cell.012
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &1831618128984717799
 Transform:
@@ -2799,8 +2842,8 @@ GameObject:
   m_Name: Cube_cell.033
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &7182196214373947465
 Transform:
@@ -2913,8 +2956,8 @@ GameObject:
   m_Name: Cube_cell.029
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &1231769980843468478
 Transform:
@@ -3027,8 +3070,8 @@ GameObject:
   m_Name: Cube_cell.035
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &3568316570623707984
 Transform:
@@ -3141,8 +3184,8 @@ GameObject:
   m_Name: Cube_cell.014_cell
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &7157340207596638399
 Transform:
@@ -3255,8 +3298,8 @@ GameObject:
   m_Name: Cube_cell.007_cell
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &2543513665646698261
 Transform:
@@ -3365,8 +3408,8 @@ GameObject:
   m_Name: Glass_broken
   m_TagString: Ground
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 0
 --- !u!4 &6442026079293424017
 Transform:
@@ -3438,8 +3481,8 @@ GameObject:
   m_Name: Cube_cell.011_cell.003
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &4199913015283697377
 Transform:
@@ -3552,8 +3595,8 @@ GameObject:
   m_Name: Cube_cell.011_cell.001
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &5362850638494307526
 Transform:
@@ -3666,8 +3709,8 @@ GameObject:
   m_Name: Cube_cell.021
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &7008394695591963128
 Transform:
@@ -3780,8 +3823,8 @@ GameObject:
   m_Name: Cube_cell.007_cell.003
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &1992175556081381223
 Transform:
@@ -3894,8 +3937,8 @@ GameObject:
   m_Name: Cube_cell.011_cell.002
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &6361518143657265401
 Transform:
@@ -4008,8 +4051,8 @@ GameObject:
   m_Name: Cube_cell.011_cell
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &4133817865731165541
 Transform:
@@ -4122,8 +4165,8 @@ GameObject:
   m_Name: Cube_cell.028
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &8156358169394562754
 Transform:
@@ -4236,8 +4279,8 @@ GameObject:
   m_Name: Cube_cell.001_cell.001
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &9217784021514819999
 Transform:
@@ -4350,8 +4393,8 @@ GameObject:
   m_Name: Cube_cell.018
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &2744148741618621248
 Transform:
@@ -4464,8 +4507,8 @@ GameObject:
   m_Name: Cube_cell.026
   m_TagString: Glass_objs
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &7724510678725133434
 Transform:
