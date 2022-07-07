@@ -310,9 +310,9 @@ GameObject:
   - component: {fileID: 2721473675807744324}
   - component: {fileID: 2721473675807744325}
   - component: {fileID: 2721473675807744322}
-  - component: {fileID: 520672285934802}
   - component: {fileID: 520672285934830}
   - component: {fileID: 520672285934805}
+  - component: {fileID: 3169514495722234570}
   m_Layer: 13
   m_Name: ZOMBIE4
   m_TagString: Zombie
@@ -327,9 +327,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2721473675807744320}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 66, y: 68.93, z: 206.88}
-  m_LocalScale: {x: 5.2, y: 5.8, z: 5.2}
+  m_LocalScale: {x: 5.2, y: 6, z: 5.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5926622888387111780}
@@ -429,19 +429,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &520672285934802
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2721473675807744320}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2630755, y: 2.75771, z: 1.1587054}
-  m_Center: {x: 0.010729661, y: 0.8788558, z: 0.0793546}
 --- !u!114 &520672285934830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,6 +463,20 @@ MonoBehaviour:
   HealthBar: {fileID: 0}
   Damage_Screen: {fileID: 0}
   delay: 1
+--- !u!136 &3169514495722234570
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2721473675807744320}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.7164374
+  m_Height: 2.8748703
+  m_Direction: 1
+  m_Center: {x: 0.028984731, y: 0.93743515, z: 0.02667152}
 --- !u!1 &2769469790542759021
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +487,6 @@ GameObject:
   m_Component:
   - component: {fileID: 33355460745866240}
   - component: {fileID: 33355460745866243}
-  - component: {fileID: 9158555754334917369}
   m_Layer: 13
   m_Name: Head
   m_TagString: Untagged
@@ -503,7 +503,7 @@ Transform:
   m_GameObject: {fileID: 2769469790542759021}
   m_LocalRotation: {x: 0.08797968, y: -0.014245834, z: 0.007440723, w: 0.9959926}
   m_LocalPosition: {x: -0, y: 0.00375, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2431629906858204338}
@@ -523,20 +523,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0055732485, y: 0.0053578625, z: 0.0055733006}
   m_Center: {x: -0.00000035893635, y: 0.0027188903, z: 0.00000022948309}
---- !u!64 &9158555754334917369
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2769469790542759021}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &3982266200731736654
 GameObject:
   m_ObjectHideFlags: 0

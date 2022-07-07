@@ -503,9 +503,9 @@ GameObject:
   - component: {fileID: 6827087372229985764}
   - component: {fileID: 6827087372229985765}
   - component: {fileID: 6827087372229985762}
-  - component: {fileID: 8897964582684844146}
   - component: {fileID: 8897964582684844110}
   - component: {fileID: 8897964582684844149}
+  - component: {fileID: 715946365462214633}
   m_Layer: 13
   m_Name: ZOMBIE2
   m_TagString: Zombie
@@ -520,9 +520,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6827087372229985760}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 56, y: 68.93, z: 194.33}
-  m_LocalScale: {x: 5.2, y: 5.8, z: 5.2}
+  m_LocalScale: {x: 5.2, y: 6, z: 5.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2973970274703724484}
@@ -622,19 +622,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &8897964582684844146
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6827087372229985760}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2630755, y: 2.75771, z: 1.1587054}
-  m_Center: {x: 0.010729661, y: 0.8788558, z: 0.0793546}
 --- !u!114 &8897964582684844110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,6 +656,20 @@ MonoBehaviour:
   HealthBar: {fileID: 0}
   Damage_Screen: {fileID: 0}
   delay: 1
+--- !u!136 &715946365462214633
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6827087372229985760}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.6698793
+  m_Height: 2.9007835
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.95039177, z: 0.16987939}
 --- !u!1 &7086309692168018128
 GameObject:
   m_ObjectHideFlags: 0
