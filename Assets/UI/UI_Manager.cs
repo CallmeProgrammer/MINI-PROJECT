@@ -62,9 +62,9 @@ public class UI_Manager : MonoBehaviour
         Short_GunIcon.SetActive(false);
     }
 
-   
+
     //public void Damage_Screen()
     //{
-    //    PlayerDamage_Screen.GetComponent<RawImage>().color.a=
+       
     //}
 }

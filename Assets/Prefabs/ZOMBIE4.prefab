@@ -390,7 +390,7 @@ MonoBehaviour:
   PLAYER: {fileID: 0}
   Ray_point: {fileID: 9158555755369042720}
   range: 10
-  look_radius: 50
+  look_radius: 30
   attack_radius: 10
   dist: 0
   Target_points:
@@ -463,6 +463,7 @@ MonoBehaviour:
   HealthBar: {fileID: 0}
   Damage_Screen: {fileID: 0}
   delay: 1
+  is_Damage_Screen_Visible: 0
 --- !u!136 &3169514495722234570
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class Target : MonoBehaviour
     
             isDead = true;
             Spawners.Spawners_instance.Zombie_Amount--;
-            Die();
+            //Die();
         }
         else
         {
@@ -37,6 +37,7 @@ public class Target : MonoBehaviour
     void Die()
     {
         gameObject.SetActive(false);
+        //Destroy(gameObject);
 
     }
 

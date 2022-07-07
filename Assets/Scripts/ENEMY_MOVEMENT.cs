@@ -133,7 +133,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
 
     public void updateanimation()
     {
-        if (Target.target_instance.isDead == true)
+        if (Target.target_instance.isDead == true && Target.target_instance.health <=0)
         {
             playanimstate("ZOMBIE_DIE");
         }
@@ -178,7 +178,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         //    playanimstate("ZOMBIE_WALKING");
         //    zombie.speed = 2;
         //}
-        else if (dist <= look_radius && isChasing )
+        else if (dist <= look_radius && !isPatroling)
         {
             zombie.isStopped = false;
             playanimstate("ZOMBIE_RUNNING");
