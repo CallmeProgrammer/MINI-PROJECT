@@ -28,10 +28,9 @@ public class Spawners : MonoBehaviour
     void Start()
     {
 
-        //for (int i = 0; i <= Zombie_Amount; i++)
+        //for (int i = 0; i < spawners.Length; i++)           
         //{
-        //    //Spawn_enemy();
-        //    InvokeRepeating("Spawn_enemy", 60, 1);
+        //    spawners[i] = transform.GetChild(i).gameObject;
         //}
 
     }

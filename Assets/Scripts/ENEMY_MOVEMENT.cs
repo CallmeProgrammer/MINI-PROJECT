@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class ENEMY_MOVEMENT : MonoBehaviour
 {
     public NavMeshAgent zombie;
-    public Transform Player_pos;
-    public GameObject PLAYER;
+    Transform Player_pos;
+    GameObject PLAYER;
     public GameObject Ray_point;
     public float range = 10f;
     public float look_radius = 10f;
@@ -29,6 +29,8 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     public bool isChasing = false;
     public RaycastHit hit;
     public bool inattack =false;
+
+
     // Start is called before the first frame update
 
     public void Awake()
@@ -43,13 +45,20 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     {
 
         zombie = GetComponent<NavMeshAgent>();
+        PLAYER = GameObject.FindGameObjectWithTag("Player");
+        Player_pos = Player_New.Player_instance.Pos;
         playanimstate("ZOMBIE_WALKING");
         zombie_Patrol();
 
         //Player_pos = GetComponent<Player_New>().Pos;
         //PLAYER = GetComponent<Player_New>().PlayNEW;
-        
-       
+        for (int i = 0; i < Target_points.Length; i++)
+        {
+            Target_points[i] = transform.GetChild(i).transform;
+        }
+
+
+
     }
 
     // Update is called once per frame
@@ -67,10 +76,8 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             {         
                 follow_player();
                 look_At_Player();
-            }
-          
-        }
-       
+            }       
+        } 
          dist = Vector3.Distance(Player_pos.position, transform.position);
 
         if (Vector3. Distance(Target_points[currentTransformIndex].position, transform.position) <= zombie.stoppingDistance + 1.5f && !isChasing)
@@ -78,10 +85,9 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             zombie_Patrol();
             isPatroling = true;
         }
-
-
-       if (dist <= look_radius && PLAYER.GetComponent<Player_New>())
-        {  
+      
+        if (dist <= look_radius && PLAYER.GetComponent<Player_New>())
+        {
             follow_player();
             look_At_Player();
             isChasing = true;
@@ -120,12 +126,12 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     {
         //zombie.SetDestination(Player_pos.position);
         isPatroling = false;
-        zombie.destination = Player_pos.position;
+        zombie.destination = PLAYER.transform.position;
     }
     public void zombie_Patrol()
     {
         int targetID = Random.Range(0, Target_points.Length);
-     
+        zombie.speed = 2;
         zombie.SetDestination(Target_points[targetID].position);
         zombie.transform.LookAt(Target_points[targetID].position);
         currentTransformIndex = targetID;
@@ -133,9 +139,10 @@ public class ENEMY_MOVEMENT : MonoBehaviour
 
     public void updateanimation()
     {
-        if (Target.target_instance.isDead == true && Target.target_instance.health <=0)
+        if (Target.target_instance.isDead == true)
         {
             playanimstate("ZOMBIE_DIE");
+            Invoke("Target.target_instance.Die", 3.43f);
         }
         else if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
         {
@@ -172,24 +179,27 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             }
             currentAnimIndex = animID;
         }
-        //else if (dist >= look_radius && isChasing == false)
-        //{
-        //    //zombie.isStopped = false;
-        //    playanimstate("ZOMBIE_WALKING");
-        //    zombie.speed = 2;
-        //}
-        else if (dist <= look_radius && !isPatroling)
+        else if (dist >= look_radius && isChasing == false)
+        {
+            //zombie.isStopped = false;
+            playanimstate("ZOMBIE_WALKING");
+            zombie.speed = 2;
+        }
+        else if(dist <= look_radius && !isPatroling)
         {
             zombie.isStopped = false;
             playanimstate("ZOMBIE_RUNNING");
             zombie.speed = 10;
         }
-       
-      
-       
-       
         
-      
+        
+        
+       
+
+
+
+
+
 
         //else if (isAttacking && dist >= zombie.stoppingDistance && dist >= look_radius)
         //{

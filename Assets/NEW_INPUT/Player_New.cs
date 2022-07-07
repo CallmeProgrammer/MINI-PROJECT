@@ -25,7 +25,7 @@ public class Player_New : MonoBehaviour
     public bool isRunning;
 
     public Transform Pos;
-    public GameObject PlayNEW;
+   
   public static Player_New Player_instance;
 
     private void Awake()
