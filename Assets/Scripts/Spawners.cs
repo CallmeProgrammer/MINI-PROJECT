@@ -12,7 +12,7 @@ public class Spawners : MonoBehaviour
     public int Zombie_Amount=1;
     public int range=10;
     public int Zombie_Count;
-    public int No_of_Zombies = 40;
+    public int No_of_Zombies = 70;
 
     public static Spawners Spawners_instance;
     // Start is called before the first frame update
@@ -44,6 +44,8 @@ public class Spawners : MonoBehaviour
         {
             CancelInvoke("spawn_enemy");
         }
+        Spawn_enemy();
+        
         //if (Zombie_Amount <=0)
         //{
         //    CancelInvoke("Spawn_enemy");
