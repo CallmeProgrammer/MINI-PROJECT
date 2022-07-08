@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class Short_Gun : MonoBehaviour
 {
     [Header("Damage and Range")]
-    public float damage = 50f;
+    public float damage = 10f;
     public float range = 50f;
     public float obj_range = 20f;
     [Header("Camera for Raycast")]
@@ -20,6 +20,7 @@ public class Short_Gun : MonoBehaviour
     public GameObject Broken_glass;
 
     public GameObject impacteffect;
+    public GameObject Bloodeffect;
     public TextMeshProUGUI ammoinfo;
  
     public int maxAmmo = 30;
@@ -28,7 +29,7 @@ public class Short_Gun : MonoBehaviour
     public float reloadtime = 1f;
     private bool isreloading = false;
     public bool isShooting = false;
-
+    public bool isZombie_hitting;
     public Vector3 upRecoil;
     Vector3 originalRotation;
 
@@ -142,7 +143,12 @@ public class Short_Gun : MonoBehaviour
                 target.take_damage(damage * 5);
             }         
             Instantiate(impacteffect, hit.point, Quaternion.LookRotation(hit.normal));
-        }    
+        if (hit.transform.tag == "Zombie")
+        {
+            isZombie_hitting = true;
+            Instantiate(Bloodeffect, hit.point, Quaternion.LookRotation(hit.normal));
+        }
+    }    
     public void AddRecoil()
     {
         transform.localEulerAngles += upRecoil;

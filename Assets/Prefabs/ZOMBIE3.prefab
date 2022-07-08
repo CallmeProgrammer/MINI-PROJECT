@@ -233,10 +233,16 @@ MonoBehaviour:
   PLAYER: {fileID: 0}
   Ray_point: {fileID: 5285136720909705334}
   range: 10
-  look_radius: 30
+  look_radius: 100
   attack_radius: 10
   dist: 0
   Target_points:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -264,7 +270,7 @@ NavMeshAgent:
   m_Acceleration: 50
   avoidancePriority: 50
   m_AngularSpeed: 20
-  m_StoppingDistance: 12
+  m_StoppingDistance: 14
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class ENEMY_MOVEMENT : MonoBehaviour
 {
     public NavMeshAgent zombie;
-    Transform Player_pos;
-    GameObject PLAYER;
+    public Transform Player_pos;
+    public GameObject PLAYER;
     public GameObject Ray_point;
     public float range = 10f;
     public float look_radius = 10f;
@@ -23,7 +23,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     public string currentstate;
     public Animator anime;
     public int[] anims;
-    //private bool PlayerisinRange = false;
+    private float PlayerisinRange;
     public bool isAttacking = false;
     public bool isPatroling = false;
     public bool isChasing = false;
@@ -33,7 +33,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
 
     // Start is called before the first frame update
 
-    public void Awake()
+     public void Awake()
     {
         if (enemy_instance != null)
         {
@@ -45,8 +45,6 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     {
 
         zombie = GetComponent<NavMeshAgent>();
-        PLAYER = GameObject.FindGameObjectWithTag("Player");
-        Player_pos = Player_New.Player_instance.Pos;
         playanimstate("ZOMBIE_WALKING");
         zombie_Patrol();
 
@@ -85,19 +83,19 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             zombie_Patrol();
             isPatroling = true;
         }
-      
+
         if (dist <= look_radius && PLAYER.GetComponent<Player_New>())
         {
             follow_player();
             look_At_Player();
             isChasing = true;
-          
+
         }
-        //else if (dist >= look_radius && isChasing)
-        //{
-        //    isChasing = false;
-        //    zombie_Patrol();
-        //}
+        else if (dist >= look_radius && isChasing)
+        {
+            isChasing = false;
+            zombie_Patrol();
+        }
 
         //Debug.Log(Distance(Target_points[currentTransformIndex], transform));
         if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
@@ -126,7 +124,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     {
         //zombie.SetDestination(Player_pos.position);
         isPatroling = false;
-        zombie.destination = PLAYER.transform.position;
+        zombie.destination = Player_pos.position;
     }
     public void zombie_Patrol()
     {
@@ -191,16 +189,6 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             playanimstate("ZOMBIE_RUNNING");
             zombie.speed = 10;
         }
-        
-        
-        
-       
-
-
-
-
-
-
         //else if (isAttacking && dist >= zombie.stoppingDistance && dist >= look_radius)
         //{
         //    playanimstate("ZOMBIE_WALKING");
