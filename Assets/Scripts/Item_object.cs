@@ -56,18 +56,18 @@ public class Item_object : MonoBehaviour
             if (hit.transform.tag == "Gun" )
             {
                 ishitting = true;
-                UI_Manager.UI_instance.enable_select_txt();
+             
                 GUN.GetComponent<Outline>().enabled = true;
             }
             else
             {
-                UI_Manager.UI_instance.disable_select_txt();
+              
                 GUN.GetComponent<Outline>().enabled = false;
             }
             Debug.Log(hit.transform.name);
             if (hit.transform.GetComponent<Gun>() && Input.GetKey(KeyCode.E))
             {
-                UI_Manager.UI_instance.disable_select_txt();
+               
                 GUN.transform.position = equip_pos.position;
                 GUN.transform.parent = equip_pos;
                 GUN.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
@@ -84,19 +84,19 @@ public class Item_object : MonoBehaviour
             if (hit.transform.tag == "Gun1")
             {
                 ishitting = true;
-                UI_Manager.UI_instance.enable_select_txt();
+               
                 GUN1.GetComponent<Outline>().enabled = true;
             }
             else
             {
-                UI_Manager.UI_instance.disable_select_txt();
+                
                 GUN1.GetComponent<Outline>().enabled = false;
             }
             Debug.Log(hit.transform.name);
 
             if (hit.transform.GetComponent<Short_Gun>() && Input.GetKeyDown(KeyCode.E))
             {
-                UI_Manager.UI_instance.disable_select_txt();
+               
                 GUN1.transform.position = equip_pos1.position;
                 GUN1.transform.parent = equip_pos1;
                 GUN1.transform.localEulerAngles = new Vector3(0f, 90f, 0f);

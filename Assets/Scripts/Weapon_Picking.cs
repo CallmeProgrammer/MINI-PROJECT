@@ -20,9 +20,12 @@ public class Weapon_Picking : MonoBehaviour
     public int ARGun_count=4;
     public int Knife_count=1;
     public int ShortGun_count=2;
+
+    //
+    public GameObject Weapon_Select_Text;
+    public GameObject Health_Select_Text;
     
-    
-    
+    //
     public float range = 50f;
     public RaycastHit hit;
     public GameObject Ar_Gun_pos;//Ar GUN
@@ -49,17 +52,20 @@ public class Weapon_Picking : MonoBehaviour
         Ar_Gun_pos.SetActive(false);
         //Hand_Gun_pos.SetActive(false);
         Knife_pos.SetActive(false);
-
+        ///////////////////////////////
         Ar_Gun.GetComponent<Outline>().enabled = false;
         Short_Gun.GetComponent<Outline>().enabled = false;
         Knife.GetComponent<Outline>().enabled = false;
-
+        ////////////////////////////////////
         Ar_Gun_pos.GetComponent<Gun>().enabled = false;
         Short_Gun_pos.GetComponent<Short_Gun>().enabled = false;
-
+        /////////////////////////////////////
         Ar_Gun_pos.GetComponent<Rigidbody>().isKinematic = true;
         Short_Gun_pos.GetComponent<Rigidbody>().isKinematic = true;
         Knife_pos.GetComponent<Rigidbody>().isKinematic = true;
+        /////////////////////////////////////
+        Weapon_Select_Text.SetActive(false);
+        Health_Select_Text.SetActive(false);
 
     }
 
@@ -74,46 +80,42 @@ public class Weapon_Picking : MonoBehaviour
             if(hit.transform.tag == "AR_GUN")
             {
                 ishitting = true;
-                UI_Manager.UI_instance.enable_select_txt();
-               
+                Weapon_Select_Text.SetActive(true);
                 Ar_Gun.GetComponent<Outline>().enabled = true;              
             }
             else
             {
-                UI_Manager.UI_instance.disable_select_txt();
-                
+                Weapon_Select_Text.SetActive(false);
                 Ar_Gun.GetComponent<Outline>().enabled = false;            
             }
 
             if(hit.transform.tag == "SHORT_GUN")
             {
                 ishitting = true;
-                UI_Manager.UI_instance.enable_select_txt();
-                
+                Weapon_Select_Text.SetActive(true);
                 Short_Gun.GetComponent<Outline>().enabled = true;
             }
             else
-            {
-                UI_Manager.UI_instance.disable_select_txt();
-                
+            {              
+                Weapon_Select_Text.SetActive(false);
                 Short_Gun.GetComponent<Outline>().enabled = false;
             }
 
             if (hit.transform.tag == "Knife")
             {
                 ishitting = true;
-                UI_Manager.UI_instance.enable_select_txt();
+                
                 Knife.GetComponent<Outline>().enabled = true;
             }
             else
             {
-                UI_Manager.UI_instance.disable_select_txt();
+               
                 Knife.GetComponent<Outline>().enabled = false;
             }
 
   
             Debug.Log(hit.transform.name);
-
+//////////////////////////////////////////////////////////////////////////////////////
             if(hit.transform.tag == "AR_GUN" && Input.GetKey(KeyCode.E))              
             {
                 isAr_GunPicked = true;
@@ -134,7 +136,7 @@ public class Weapon_Picking : MonoBehaviour
                 Ar_Gun_pos.GetComponent<Rigidbody>().isKinematic = false;
                 Ar_Gun_pos.GetComponent<Gun>().enabled = false;
             }
-
+/////////////////////////////////////////////////////////////////////////////////////////////
             if (hit.transform.tag == "SHORT_GUN" && Input.GetKey(KeyCode.E))
             {
                 isShort_GunPicked=true;
@@ -155,8 +157,25 @@ public class Weapon_Picking : MonoBehaviour
                 Short_Gun_pos.GetComponent<Rigidbody>().isKinematic = false;
                 Short_Gun_pos.GetComponent<Short_Gun>().enabled = false;
             }
+//////////////////////////////////////////////////////////////////////////////////////
 
-
+            if(hit.transform.tag == "Health" )
+            {
+                Health_Select_Text.SetActive(true);
+                if (Player_Health.health_Instance.health < 100 && Input.GetKey(KeyCode.E))
+                {
+                    hit.transform.gameObject.SetActive(false);
+                    //Health_Spawner.health_Spawner_instance.No_Health_Points--;
+                    Player_Health.health_Instance.health += 10;
+                    Kill_Player.Kill_instance.HealthBar.fillAmount += 0.3f;
+                }              
+            
+            }
+            else
+            {
+                Health_Select_Text.SetActive(false);
+            }
+///////////////////////////////////////////////////////////////////////////////////////
 
 
         }
@@ -186,12 +205,14 @@ public class Weapon_Picking : MonoBehaviour
     {
         Ar_Gun_pos.GetComponent<Gun>().enabled = true;
         UI_Manager.UI_instance.enable_Ar_Icon();
+        UI_Manager.UI_instance.disable_Shortgun_Icon();
         Ar_Gun_pos.SetActive(true);
     }
     public void SHORT_GUN()
     {
         Short_Gun_pos.GetComponent<Short_Gun>().enabled = true;
         UI_Manager.UI_instance.enable_Shortgun_Icon();
+        UI_Manager.UI_instance.disable_Ar_Icon();
         Short_Gun_pos.SetActive(true);
     }
     public void KNIFE()

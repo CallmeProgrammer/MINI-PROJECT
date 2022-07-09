@@ -51,7 +51,7 @@ Animator:
   m_GameObject: {fileID: 873815079380179986}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 6d74d0c86c44f7741863daf6fe3207ba, type: 3}
-  m_Controller: {fileID: 9100000, guid: a74e0c128ecf0b24cbc06babea74ae52, type: 2}
+  m_Controller: {fileID: 9100000, guid: 01cfb3735ac1bab469dcfb790eb87b61, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -111,7 +111,7 @@ MonoBehaviour:
   currentTransformIndex: 0
   currentAnimIndex: 0
   currentstate: 
-  anime: {fileID: 5875955440350158034}
+  anime: {fileID: 0}
   anims: 010000000200000003000000
   isAttacking: 0
   isPatroling: 0

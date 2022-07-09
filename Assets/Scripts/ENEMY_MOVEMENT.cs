@@ -45,15 +45,16 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     {
 
         zombie = GetComponent<NavMeshAgent>();
+        anime = GetComponent<Animator>();
         playanimstate("ZOMBIE_WALKING");
         zombie_Patrol();
 
         //Player_pos = GetComponent<Player_New>().Pos;
         //PLAYER = GetComponent<Player_New>().PlayNEW;
-        for (int i = 0; i < Target_points.Length; i++)
-        {
-            Target_points[i] = transform.GetChild(i).transform;
-        }
+        //for (int i = 0; i < Target_points.Length; i++)
+        //{
+        //    Target_points[i] = transform.GetChild(i).transform;
+        //}
 
 
 
@@ -141,6 +142,10 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         {
             playanimstate("ZOMBIE_DIE");
             Invoke("Target.target_instance.Die", 3.43f);
+            if (Gun.Gun_instance.hit.transform.tag == "Zombie")
+            {
+                playanimstate("ZOMBIE_HIT");
+            }
         }
         else if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
         {
@@ -189,6 +194,9 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             playanimstate("ZOMBIE_RUNNING");
             zombie.speed = 10;
         }
+       
+
+
         //else if (isAttacking && dist >= zombie.stoppingDistance && dist >= look_radius)
         //{
         //    playanimstate("ZOMBIE_WALKING");
@@ -199,7 +207,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
 
         //}
     }
-    private void playanimstate(string state)
+    public void playanimstate(string state)
     {
         if (currentstate == state)
             return;

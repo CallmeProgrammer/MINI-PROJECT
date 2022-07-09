@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour
 {
-    public GameObject Weapon_select_text;
     public GameObject Ar_GunIcon;
     public GameObject Short_GunIcon;
     public GameObject PlayerDamage_Screen;
@@ -25,7 +24,6 @@ public class UI_Manager : MonoBehaviour
     }
     void Start()
     {
-        disable_select_txt();
         disable_Ar_Icon();
         disable_Shortgun_Icon();
     }
@@ -35,15 +33,8 @@ public class UI_Manager : MonoBehaviour
     {
         
     }
-    public void enable_select_txt()
-    {
-        Weapon_select_text.SetActive(true);
-    }
-    public void disable_select_txt()
-    {
-        Weapon_select_text.SetActive(false);
-    }
-
+ 
+//
     public void enable_Ar_Icon()
     {
         Ar_GunIcon.SetActive(true);
@@ -52,7 +43,7 @@ public class UI_Manager : MonoBehaviour
     {
         Ar_GunIcon.SetActive(false);
     }
-
+//
     public void enable_Shortgun_Icon()
     {
         Short_GunIcon.SetActive(true);

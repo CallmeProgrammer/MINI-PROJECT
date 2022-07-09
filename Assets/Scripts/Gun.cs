@@ -162,6 +162,8 @@ public class Gun : MonoBehaviour
             {
                 isZombie_hitting = true;
                 Instantiate(Bloodeffect, hit.point, Quaternion.LookRotation(hit.normal));
+                
+
             }
 
         }

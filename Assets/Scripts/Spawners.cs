@@ -28,11 +28,7 @@ public class Spawners : MonoBehaviour
     void Start()
     {
 
-        //for (int i = 0; i < spawners.Length; i++)           
-        //{
-        //    spawners[i] = transform.GetChild(i).gameObject;
-        //}
-
+       
     }
 
     // Update is called once per frame

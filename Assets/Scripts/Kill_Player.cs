@@ -11,7 +11,17 @@ public class Kill_Player : MonoBehaviour
     public float delay = 2.0f;
     public bool is_Damage_Screen_Visible =false;
 
+    public static Kill_Player Kill_instance;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if (Kill_instance != null)
+        {
+            return;
+        }
+        Kill_instance = this;
+    }
     void Start()
     {
         //Damage_Screen.SetActive(false);
