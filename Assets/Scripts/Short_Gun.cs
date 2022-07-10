@@ -127,10 +127,7 @@ public class Short_Gun : MonoBehaviour
                 //Inisiating the glass breaking script for glass break effect
                 hit.transform.gameObject.GetComponent<Glass_Break>().break_glass();
             }
-            if(hit.transform.gameObject.GetComponent<Explosive>())
-            {
-                hit.transform.gameObject.GetComponent<Explosive>().Explosion();
-            }
+            
             //Obtaining functions from another script
             Target target = hit.transform.GetComponent<Target>();
             if(target !=null)

@@ -139,11 +139,13 @@ public class Gun : MonoBehaviour
                 hit.transform.gameObject.GetComponent<Glass_Break>().break_glass();
 
             }
-
-            if(hit.transform.gameObject.GetComponent<Explosive>())
+            //
+            if(hit.transform.gameObject.GetComponent<Fire_Extiguisher>())
             {
-                hit.transform.gameObject.GetComponent<Explosive>().Explosion();
+                Fire_Extiguisher.Explosion_instance.explode();
+                Instantiate(Fire_Extiguisher.Explosion_instance.explosioneffect, transform.position, transform.rotation);
             }
+           //
             //Obtaining functions from another script
             Target target = hit.transform.GetComponent<Target>();
             if(target !=null)
