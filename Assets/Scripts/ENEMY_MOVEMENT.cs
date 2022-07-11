@@ -63,6 +63,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //AUDIO.audio_instance.Play_ZombieMoarning_Audio();
         if(!inattack)
         {
             updateanimation();
@@ -82,12 +83,14 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         if (Vector3. Distance(Target_points[currentTransformIndex].position, transform.position) <= zombie.stoppingDistance + 1.5f && !isChasing)
         {
             zombie_Patrol();
+            AUDIO.audio_instance.Play_ZombieMoarning_Audio();
             isPatroling = true;
         }
 
         if (dist <= look_radius && PLAYER.GetComponent<Player_New>())
         {
             follow_player();
+            AUDIO.audio_instance.Play_ZombieMoarning_Audio();
             look_At_Player();
             isChasing = true;
 
@@ -95,6 +98,7 @@ public class ENEMY_MOVEMENT : MonoBehaviour
         else if (dist >= look_radius && isChasing)
         {
             isChasing = false;
+            AUDIO.audio_instance.Play_ZombieMoarning_Audio();
             zombie_Patrol();
         }
 

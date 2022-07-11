@@ -81,9 +81,17 @@ public class Gun : MonoBehaviour
             return;
         }
        
-        if(Input.GetKey(KeyCode.Mouse0) && Time.time >= nexttimetofire)
+        if(Input.GetKeyDown(KeyCode.Mouse0) && Time.time >= nexttimetofire)
         {
-            nexttimetofire = Time.time + 1f / firerate; 
+            nexttimetofire = Time.time + 1f / firerate;
+            AUDIO.audio_instance.Play_AK47_Sound();
+            muzzle_flash.Play();
+            isShooting = true;
+            shoot();
+        }
+        if(Input.GetKey(KeyCode.Mouse0))
+        {
+            AUDIO.audio_instance.Play_AK47_Sound();
             muzzle_flash.Play();
             isShooting = true;
             shoot();

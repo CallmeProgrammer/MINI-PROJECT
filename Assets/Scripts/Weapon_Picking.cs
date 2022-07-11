@@ -123,7 +123,7 @@ public class Weapon_Picking : MonoBehaviour
                 {
                     Short_Gun_pos.SetActive(false);
                     Ar_Gun_pos.SetActive(true);
-                   
+
                 }
                 Ar_Gun.SetActive(false);
                 AR_GUN();
@@ -144,7 +144,7 @@ public class Weapon_Picking : MonoBehaviour
                 {
                     Short_Gun_pos.SetActive(true);
                     Ar_Gun_pos.SetActive(false);
-                    
+                
                 }
                 Short_Gun.SetActive(false);
                 SHORT_GUN();
@@ -158,6 +158,23 @@ public class Weapon_Picking : MonoBehaviour
                 Short_Gun_pos.GetComponent<Short_Gun>().enabled = false;
             }
 //////////////////////////////////////////////////////////////////////////////////////
+
+            if(isAr_GunPicked && isShort_GunPicked)
+            {
+                if(Input.GetKey(KeyCode.Alpha1))
+                {
+                    AR_GUN();
+                    Short_Gun_pos.SetActive(false);
+                }
+                else if(Input.GetKey(KeyCode.Alpha2))
+                {
+                    SHORT_GUN();
+                    Ar_Gun_pos.SetActive(false);
+                }
+            }
+
+
+/////////////////////////////////////////////////////////////////////////////////////
 
             if(hit.transform.tag == "Health" )
             {

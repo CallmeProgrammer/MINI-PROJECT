@@ -80,6 +80,7 @@ public class Short_Gun : MonoBehaviour
         if(Input.GetKey(KeyCode.Mouse0))
         { 
             muzzle_flash.Play();
+            AUDIO.audio_instance.Play_ShortGun_Audio();
             AddRecoil();
             shoot();
         }
