@@ -6,7 +6,9 @@ public class AUDIO : MonoBehaviour
 {
     public AudioSource ShortGun_Audio;
     public AudioSource ZombieMoarning_Audio;
+    public AudioSource ZombieAttack_Audio;
     public AudioSource  Ak47_Audio;
+    public AudioSource  Footsteps_Audio;
     public static AUDIO audio_instance;
 
 
@@ -42,5 +44,15 @@ public class AUDIO : MonoBehaviour
     public void Play_AK47_Sound()
     {
         Ak47_Audio.Play();
+    }
+
+    public void Play_Footsteps_audio()
+    {
+        Footsteps_Audio.Play();
+    } 
+    
+    public void Play_ZombieAttack_audio()
+    {
+        ZombieAttack_Audio.Play();
     }
 }

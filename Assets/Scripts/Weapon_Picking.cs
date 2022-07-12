@@ -161,22 +161,22 @@ public class Weapon_Picking : MonoBehaviour
             }
             //////////////////////////////////////////////////////////////////////////////////////
 
-            if (hit.transform.GetComponent<Short_Gun>().enabled == false && !isShort_GunPicked && Input.GetKeyDown(KeyCode.E))
-            {
-                Short_Gun_pos.transform.position = Short_Gun_Position.position;
-                Short_Gun_pos.transform.parent = Short_Gun_Position;
-                Short_Gun_pos.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
-                Short_Gun_pos.GetComponent<Rigidbody>().isKinematic = true;
-                SHORT_GUN();
-            }
-            else if (hit.transform.GetComponent<Gun>().enabled == false && !isAr_GunPicked && Input.GetKeyDown(KeyCode.E))
-            {
-                Ar_Gun_pos.transform.position = Ar_Gun_Position.position;
-                Ar_Gun_pos.transform.parent= Ar_Gun_Position;
-                Ar_Gun_pos.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
-                Ar_Gun_pos.GetComponent<Rigidbody>().isKinematic = true;
-                AR_GUN();
-            }
+            //if (hit.transform.GetComponent<Short_Gun>().enabled == false && !isShort_GunPicked && Input.GetKeyDown(KeyCode.E))
+            //{
+            //    Short_Gun_pos.transform.position = Short_Gun_Position.position;
+            //    Short_Gun_pos.transform.parent = Short_Gun_Position;
+            //    Short_Gun_pos.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+            //    Short_Gun_pos.GetComponent<Rigidbody>().isKinematic = true;
+            //    SHORT_GUN();
+            //}
+            //else if (hit.transform.GetComponent<Gun>().enabled == false && !isAr_GunPicked && Input.GetKeyDown(KeyCode.E))
+            //{
+            //    Ar_Gun_pos.transform.position = Ar_Gun_Position.position;
+            //    Ar_Gun_pos.transform.parent= Ar_Gun_Position;
+            //    Ar_Gun_pos.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+            //    Ar_Gun_pos.GetComponent<Rigidbody>().isKinematic = true;
+            //    AR_GUN();
+            //}
 /////////////////////////////////////////////////////////////////////////////////////
 
             if (hit.transform.tag == "Health" )

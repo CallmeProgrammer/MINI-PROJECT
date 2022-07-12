@@ -67,12 +67,21 @@ public class Player_New : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         char_con.Move(velocity * Time.deltaTime);
-
+      
         if(Input.GetKey(KeyCode.LeftShift))
         {
             isRunning = true;
             char_con.Move(move * speed* sprintspeed * Time.deltaTime);
+           
         }
+
+        if(char_con.isGrounded == true && char_con.velocity.magnitude > 2f)
+        {
+            AUDIO.audio_instance.Footsteps_Audio.volume = Random.Range(0.8f, 1.0f);
+            AUDIO.audio_instance.Footsteps_Audio.pitch = Random.Range(0.8f, 1.1f);
+            AUDIO.audio_instance.Play_Footsteps_audio();
+        }
+             
 
       
     }

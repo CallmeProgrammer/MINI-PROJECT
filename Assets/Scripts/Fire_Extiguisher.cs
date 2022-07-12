@@ -48,11 +48,13 @@ public class Fire_Extiguisher : MonoBehaviour
             {
                 rb.isKinematic = false;
                 rb.AddExplosionForce(force, transform.position, radius);
-                //Instantiate(explosioneffect, transform.position, transform.rotation);
+                Instantiate(explosioneffect, transform.position, transform.rotation);
             }
 
         }
         Destroy(gameObject);
+        Destroy(explosioneffect);
+
 
     }
     public void OnDrawGizmosSelected()

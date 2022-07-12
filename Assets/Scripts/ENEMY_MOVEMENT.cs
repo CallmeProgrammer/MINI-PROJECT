@@ -82,23 +82,20 @@ public class ENEMY_MOVEMENT : MonoBehaviour
 
         if (Vector3. Distance(Target_points[currentTransformIndex].position, transform.position) <= zombie.stoppingDistance + 1.5f && !isChasing)
         {
-            zombie_Patrol();
-            AUDIO.audio_instance.Play_ZombieMoarning_Audio();
+            zombie_Patrol();         
             isPatroling = true;
         }
 
         if (dist <= look_radius && PLAYER.GetComponent<Player_New>())
         {
-            follow_player();
-            AUDIO.audio_instance.Play_ZombieMoarning_Audio();
+            follow_player();        
             look_At_Player();
             isChasing = true;
 
         }
         else if (dist >= look_radius && isChasing)
         {
-            isChasing = false;
-            AUDIO.audio_instance.Play_ZombieMoarning_Audio();
+            isChasing = false;          
             zombie_Patrol();
         }
 
@@ -142,14 +139,11 @@ public class ENEMY_MOVEMENT : MonoBehaviour
 
     public void updateanimation()
     {
-        if (Target.target_instance.isDead == true)
+        if (Target.target_instance.isDead == true && Target.target_instance.health <=0)
         {
-            playanimstate("ZOMBIE_DIE");
-            Invoke("Target.target_instance.Die", 3.43f);
-            if (Gun.Gun_instance.hit.transform.tag == "Zombie")
-            {
-                playanimstate("ZOMBIE_HIT");
-            }
+            anime.SetTrigger("Dead");
+            
+           
         }
         else if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
         {
@@ -160,28 +154,28 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             {
                 inattack = true;
                 Debug.Log("Playing ATTACK ");
-                playanimstate("ZOMBIE_ATTACK");
+                playanimstate("ZOMBIE_ATTACK");             
                 inattack = false;
             }
             else if(currentAnimIndex == 2)
             {
                 inattack = true;
                 Debug.Log("Playing BITING ");
-                playanimstate("ZOMBIE_ATTACK2");
+                playanimstate("ZOMBIE_ATTACK2");               
                 inattack = false;
             }
             else if(currentAnimIndex == 3)
             {
                 inattack = true;
                 Debug.Log("Playing SCREAM ");
-                playanimstate("ZOMBIE_KICKING");
+                playanimstate("ZOMBIE_KICKING");             
                 inattack = false;
             }
             else if(currentAnimIndex == 4)
             {
                 inattack = true;
                 Debug.Log("Playing SCREAM");
-                playanimstate("ZOMBIE_ATTACK3");
+                playanimstate("ZOMBIE_ATTACK3");              
                 inattack = false;
             }
             currentAnimIndex = animID;

@@ -151,7 +151,7 @@ public class Gun : MonoBehaviour
             if(hit.transform.gameObject.GetComponent<Fire_Extiguisher>())
             {
                 Fire_Extiguisher.Explosion_instance.explode();
-                Instantiate(Fire_Extiguisher.Explosion_instance.explosioneffect, transform.position, transform.rotation);
+               
             }
            //
             //Obtaining functions from another script
