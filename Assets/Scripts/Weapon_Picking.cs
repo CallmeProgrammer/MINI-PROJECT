@@ -29,7 +29,9 @@ public class Weapon_Picking : MonoBehaviour
     public float range = 50f;
     public RaycastHit hit;
     public GameObject Ar_Gun_pos;//Ar GUN
+    public Transform Ar_Gun_Position;//Ar GUN
     public GameObject Short_Gun_pos;//Short GUN
+    public Transform Short_Gun_Position;//Short GUN
     //public GameObject Hand_Gun_pos;//Hand GUN
     public GameObject Knife_pos;//Dagger
 
@@ -157,26 +159,27 @@ public class Weapon_Picking : MonoBehaviour
                 Short_Gun_pos.GetComponent<Rigidbody>().isKinematic = false;
                 Short_Gun_pos.GetComponent<Short_Gun>().enabled = false;
             }
-//////////////////////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////////////////////
 
-            if(isAr_GunPicked && isShort_GunPicked)
+            if (hit.transform.GetComponent<Short_Gun>().enabled == false && !isShort_GunPicked && Input.GetKeyDown(KeyCode.E))
             {
-                if(Input.GetKey(KeyCode.Alpha1))
-                {
-                    AR_GUN();
-                    Short_Gun_pos.SetActive(false);
-                }
-                else if(Input.GetKey(KeyCode.Alpha2))
-                {
-                    SHORT_GUN();
-                    Ar_Gun_pos.SetActive(false);
-                }
+                Short_Gun_pos.transform.position = Short_Gun_Position.position;
+                Short_Gun_pos.transform.parent = Short_Gun_Position;
+                Short_Gun_pos.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+                Short_Gun_pos.GetComponent<Rigidbody>().isKinematic = true;
+                SHORT_GUN();
             }
-
-
+            else if (hit.transform.GetComponent<Gun>().enabled == false && !isAr_GunPicked && Input.GetKeyDown(KeyCode.E))
+            {
+                Ar_Gun_pos.transform.position = Ar_Gun_Position.position;
+                Ar_Gun_pos.transform.parent= Ar_Gun_Position;
+                Ar_Gun_pos.transform.localEulerAngles = new Vector3(0f, 180f, 0f);
+                Ar_Gun_pos.GetComponent<Rigidbody>().isKinematic = true;
+                AR_GUN();
+            }
 /////////////////////////////////////////////////////////////////////////////////////
 
-            if(hit.transform.tag == "Health" )
+            if (hit.transform.tag == "Health" )
             {
                 Health_Select_Text.SetActive(true);
                 if (Player_Health.health_Instance.health < 100 && Input.GetKey(KeyCode.E))
@@ -196,8 +199,20 @@ public class Weapon_Picking : MonoBehaviour
 
 
         }
-
+        if (isAr_GunPicked && isShort_GunPicked)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                AR_GUN();
+                Short_Gun_pos.SetActive(false);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                SHORT_GUN();
+                Ar_Gun_pos.SetActive(false);
+            }
         }
+    }
         public void Drop()
         {
             //GUN.transform.parent = null;
@@ -221,6 +236,7 @@ public class Weapon_Picking : MonoBehaviour
     public void AR_GUN()
     {
         Ar_Gun_pos.GetComponent<Gun>().enabled = true;
+        //Ar_Gun_pos.transform.position =  Ar_Gun_Position.position;
         UI_Manager.UI_instance.enable_Ar_Icon();
         UI_Manager.UI_instance.disable_Shortgun_Icon();
         Ar_Gun_pos.SetActive(true);
@@ -228,6 +244,7 @@ public class Weapon_Picking : MonoBehaviour
     public void SHORT_GUN()
     {
         Short_Gun_pos.GetComponent<Short_Gun>().enabled = true;
+        //Short_Gun_pos.transform.position = Short_Gun_Position.position;
         UI_Manager.UI_instance.enable_Shortgun_Icon();
         UI_Manager.UI_instance.disable_Ar_Icon();
         Short_Gun_pos.SetActive(true);
