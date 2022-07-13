@@ -75,12 +75,12 @@ public class Player_New : MonoBehaviour
            
         }
 
-        if(char_con.isGrounded == true && char_con.velocity.magnitude > 2f)
-        {
-            AUDIO.audio_instance.Footsteps_Audio.volume = Random.Range(0.8f, 1.0f);
-            AUDIO.audio_instance.Footsteps_Audio.pitch = Random.Range(0.8f, 1.1f);
-            AUDIO.audio_instance.Play_Footsteps_audio();
-        }
+        //if(char_con.isGrounded == true && char_con.velocity.magnitude > 2f)
+        //{
+        //    AUDIO.audio_instance.Footsteps_Audio.volume = Random.Range(0.8f, 1.0f);
+        //    AUDIO.audio_instance.Footsteps_Audio.pitch = Random.Range(0.8f, 1.1f);
+        //    AUDIO.audio_instance.Play_Footsteps_audio();
+        //}
              
 
       

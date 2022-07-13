@@ -40,7 +40,7 @@ public class Spawners : MonoBehaviour
         {
             CancelInvoke("spawn_enemy");
         }
-        Spawn_enemy();
+        //Spawn_enemy();
         
         //if (Zombie_Amount <=0)
         //{

@@ -17,7 +17,6 @@ public class DoorScript : MonoBehaviour
     public void Update()
     {
         Door_Dist = Vector3.Distance(Player_Position.position, transform.position);
-
         if(Door_Dist <= Door_Radius)
         {
             DOOR.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -30,7 +29,6 @@ public class DoorScript : MonoBehaviour
            
             isOpen = false;
         }
-
     }
     private void OnDrawGizmosSelected()
     {

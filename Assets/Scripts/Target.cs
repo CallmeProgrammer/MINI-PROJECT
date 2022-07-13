@@ -26,8 +26,14 @@ public class Target : MonoBehaviour
         {
     
             isDead = true;
-            Spawners.Spawners_instance.Zombie_Amount--;
+            //Spawners.Spawners_instance.Zombie_Amount--;
+            //ENEMY_MOVEMENT.enemy_instance.anime.SetBool("ZOMBIE_DIE", true);
             //Die();
+            if(isDead)
+            {
+                Invoke("Die", 3);
+            }
+            
         }
         else
         {
