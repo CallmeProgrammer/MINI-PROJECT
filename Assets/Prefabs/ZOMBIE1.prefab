@@ -349,7 +349,7 @@ Animator:
   m_GameObject: {fileID: 2410777103869252832}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 6d74d0c86c44f7741863daf6fe3207ba, type: 3}
-  m_Controller: {fileID: 9100000, guid: 01cfb3735ac1bab469dcfb790eb87b61, type: 2}
+  m_Controller: {fileID: 9100000, guid: a74e0c128ecf0b24cbc06babea74ae52, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -372,7 +372,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  isDead: 0
+  isDead1: 0
+  isDead2: 0
+  isDead3: 0
+  isDead4: 0
+  isDead5: 0
   zom_num: 0
 --- !u!114 &2410777103869252837
 MonoBehaviour:

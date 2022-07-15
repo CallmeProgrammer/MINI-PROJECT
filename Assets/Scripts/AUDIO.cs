@@ -9,6 +9,7 @@ public class AUDIO : MonoBehaviour
     public AudioSource ZombieAttack_Audio;
     public AudioSource  Ak47_Audio;
     public AudioSource  Footsteps_Audio;
+    public AudioSource  Background_Audio;
     public static AUDIO audio_instance;
 
 
@@ -25,7 +26,7 @@ public class AUDIO : MonoBehaviour
     }
     void Start()
     {
-        
+        Background_Audio.Play();
     }
 
     // Update is called once per frame

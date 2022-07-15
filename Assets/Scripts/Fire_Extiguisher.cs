@@ -8,12 +8,14 @@ public class Fire_Extiguisher : MonoBehaviour
     public float radius = 50f;
     public float force = 700f;
     public float countdown;
+    public bool isexploded;
     public bool hasExploded = false;
     public GameObject explosioneffect;
     public static Fire_Extiguisher Explosion_instance;
     // Start is called before the first frame update
     void Start()
     {
+        //explosioneffect.SetActive(true);
         //countdown = delay;
     }
     private void Awake()
@@ -46,14 +48,21 @@ public class Fire_Extiguisher : MonoBehaviour
           Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
            if(rb != null)
             {
-                rb.isKinematic = false;
-                rb.AddExplosionForce(force, transform.position, radius);
+                if(rb.isKinematic == true)
+                {
+                    rb.isKinematic = false;
+                }
+                rb.AddExplosionForce(force, transform.position, radius);             
                 Instantiate(explosioneffect, transform.position, transform.rotation);
+                
+              
+
             }
 
         }
         Destroy(gameObject);
         Destroy(explosioneffect);
+      
 
 
     }

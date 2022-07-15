@@ -19,7 +19,7 @@ public class DoorScript2 : MonoBehaviour
         Door_Dist = Vector3.Distance(Player_Position.position, transform.position);
         if(Door_Dist <= Door_Radius)
         {
-            DOOR.transform.rotation = Quaternion.Euler(0,90, 0);
+            DOOR.transform.rotation = Quaternion.Euler(0,-90, 0);
         
             isOpen = true;
         }

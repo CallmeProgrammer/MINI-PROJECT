@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class ENEMY_MOVEMENT2 : MonoBehaviour
 {
-    public NavMeshAgent zombie;
+    public NavMeshAgent zombie2;
     public Transform Player_pos;
     public GameObject PLAYER;
     public GameObject Ray_point;
@@ -45,7 +45,7 @@ public class ENEMY_MOVEMENT2 : MonoBehaviour
     void Start()
     {
 
-        zombie = GetComponent<NavMeshAgent>();
+        zombie2 = GetComponent<NavMeshAgent>();
         anime2 = GetComponent<Animator>();
         playanimstate2("ZOMBIE_WALKING");
         zombie_Patrol();
@@ -70,7 +70,7 @@ public class ENEMY_MOVEMENT2 : MonoBehaviour
             updateanimation2();
         }
       
-        attack_radius = zombie.stoppingDistance;
+        attack_radius = zombie2.stoppingDistance;
         if (Physics.Raycast(Ray_point.transform.position, Ray_point.transform.forward, out hit, range))
         {
             if (hit.transform.gameObject.CompareTag("Player"))
@@ -81,7 +81,7 @@ public class ENEMY_MOVEMENT2 : MonoBehaviour
         } 
          dist = Vector3.Distance(Player_pos.position, transform.position);
 
-        if (Vector3. Distance(Target_points[currentTransformIndex].position, transform.position) <= zombie.stoppingDistance + 1.5f && !isChasing)
+        if (Vector3. Distance(Target_points[currentTransformIndex].position, transform.position) <= zombie2.stoppingDistance + 1.5f && !isChasing)
         {
             zombie_Patrol();         
             isPatroling = true;
@@ -101,11 +101,11 @@ public class ENEMY_MOVEMENT2 : MonoBehaviour
         }
 
         //Debug.Log(Distance(Target_points[currentTransformIndex], transform));
-        if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
+        if (Distance(Player_pos, transform) <= zombie2.stoppingDistance)
         {
             isAttacking = true;
         }
-        else if(Distance(Player_pos, transform) >= zombie.stoppingDistance)
+        else if(Distance(Player_pos, transform) >= zombie2.stoppingDistance)
         {
             isAttacking = false;
         }
@@ -127,14 +127,14 @@ public class ENEMY_MOVEMENT2 : MonoBehaviour
     {
         //zombie.SetDestination(Player_pos.position);
         isPatroling = false;
-        zombie.destination = Player_pos.position;
+        zombie2.destination = Player_pos.position;
     }
     public void zombie_Patrol()
     {
         int targetID = Random.Range(0, Target_points.Length);
-        zombie.speed = 2;
-        zombie.SetDestination(Target_points[targetID].position);
-        zombie.transform.LookAt(Target_points[targetID].position);
+        zombie2.speed = 2;
+        zombie2.SetDestination(Target_points[targetID].position);
+        zombie2.transform.LookAt(Target_points[targetID].position);
         currentTransformIndex = targetID;
     }
 
@@ -150,11 +150,11 @@ public class ENEMY_MOVEMENT2 : MonoBehaviour
         {
             //zombie.isStopped = false;
             playanimstate2("ZOMBIE2_WALKING");
-             zombie.speed = 2;
+             zombie2.speed = 2;
         }
-        else if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
+        else if (Distance(Player_pos, transform) <= zombie2.stoppingDistance)
         {
-            zombie.isStopped = true;
+            zombie2.isStopped = true;
             int animID = Random.Range(1, 4);
       
             if (currentAnimIndex == 1)
@@ -189,14 +189,11 @@ public class ENEMY_MOVEMENT2 : MonoBehaviour
         }    
         else if(dist <= look_radius && !isPatroling)
         {
-            zombie.isStopped = false;
+            zombie2.isStopped = false;
             playanimstate2("ZOMBIE2_RUNNING");
-            zombie.speed = 10;
+            zombie2.speed = 10;
         }
-        else if(Target.target_instance.isDead)
-        {
-            playanimstate2("ZOMBIE_DIE2");
-        }
+      
        
 
 

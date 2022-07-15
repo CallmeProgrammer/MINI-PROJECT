@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class ENEMY_MOVEMENT5 : MonoBehaviour
 {
-    public NavMeshAgent zombie;
+    public NavMeshAgent zombie5;
     public Transform Player_pos;
     public GameObject PLAYER;
     public GameObject Ray_point;
@@ -20,8 +20,8 @@ public class ENEMY_MOVEMENT5 : MonoBehaviour
 
     public static ENEMY_MOVEMENT5 enemy_instance;
 
-    public string currentstate;
-    public Animator anime;
+    public string currentstate5;
+    public Animator anime5;
     public int[] anims;
     private float PlayerisinRange;
     public bool isAttacking = false;
@@ -45,9 +45,9 @@ public class ENEMY_MOVEMENT5 : MonoBehaviour
     void Start()
     {
 
-        zombie = GetComponent<NavMeshAgent>();
-        anime = GetComponent<Animator>();
-        playanimstate("ZOMBIE_WALKING");
+        zombie5 = GetComponent<NavMeshAgent>();
+        anime5 = GetComponent<Animator>();
+        playanimstate5("ZOMBIE_WALKING");
         zombie_Patrol();
 
         //Player_pos = GetComponent<Player_New>().Pos;
@@ -67,10 +67,10 @@ public class ENEMY_MOVEMENT5 : MonoBehaviour
         //AUDIO.audio_instance.Play_ZombieMoarning_Audio();
         if(!inattack)
         {
-            updateanimation();
+            updateanimation5();
         }
       
-        attack_radius = zombie.stoppingDistance;
+        attack_radius = zombie5.stoppingDistance;
         if (Physics.Raycast(Ray_point.transform.position, Ray_point.transform.forward, out hit, range))
         {
             if (hit.transform.gameObject.CompareTag("Player"))
@@ -81,7 +81,7 @@ public class ENEMY_MOVEMENT5 : MonoBehaviour
         } 
          dist = Vector3.Distance(Player_pos.position, transform.position);
 
-        if (Vector3. Distance(Target_points[currentTransformIndex].position, transform.position) <= zombie.stoppingDistance + 1.5f && !isChasing)
+        if (Vector3. Distance(Target_points[currentTransformIndex].position, transform.position) <= zombie5.stoppingDistance + 1.5f && !isChasing)
         {
             zombie_Patrol();         
             isPatroling = true;
@@ -101,11 +101,11 @@ public class ENEMY_MOVEMENT5 : MonoBehaviour
         }
 
         //Debug.Log(Distance(Target_points[currentTransformIndex], transform));
-        if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
+        if (Distance(Player_pos, transform) <= zombie5.stoppingDistance)
         {
             isAttacking = true;
         }
-        else if(Distance(Player_pos, transform) >= zombie.stoppingDistance)
+        else if(Distance(Player_pos, transform) >= zombie5.stoppingDistance)
         {
             isAttacking = false;
         }
@@ -127,77 +127,68 @@ public class ENEMY_MOVEMENT5 : MonoBehaviour
     {
         //zombie.SetDestination(Player_pos.position);
         isPatroling = false;
-        zombie.destination = Player_pos.position;
+        zombie5.destination = Player_pos.position;
     }
     public void zombie_Patrol()
     {
         int targetID = Random.Range(0, Target_points.Length);
-        zombie.speed = 2;
-        zombie.SetDestination(Target_points[targetID].position);
-        zombie.transform.LookAt(Target_points[targetID].position);
+        zombie5.speed = 2;
+        zombie5.SetDestination(Target_points[targetID].position);
+        zombie5.transform.LookAt(Target_points[targetID].position);
         currentTransformIndex = targetID;
     }
 
-    public void updateanimation()
+    public void updateanimation5()
     {
-    //    if (Target.target_instance.isDead == true && Target.target_instance.health <=0)
-    //    {
-    //        anime.SetTrigger("Dead");
-            
-           
-    //    }
+   
         if (dist >= look_radius && isChasing == false)
         {
             //zombie.isStopped = false;
-            playanimstate("ZOMBIE5_WALKING");
-             zombie.speed = 3;
+            playanimstate5("ZOMBIE5_WALKING");
+             zombie5.speed = 3;
         }
-        else if (Distance(Player_pos, transform) <= zombie.stoppingDistance)
+        else if (Distance(Player_pos, transform) <= zombie5.stoppingDistance)
         {
-            zombie.isStopped = true;
+            zombie5.isStopped = true;
             int animID = Random.Range(1, 4);
       
             if (currentAnimIndex == 1)
             {
                 inattack = true;
                 Debug.Log("Playing ATTACK ");
-                playanimstate("ZOMBIE5_ATTACK");             
+                playanimstate5("ZOMBIE5_ATTACK");             
                 inattack = false;
             }
             else if(currentAnimIndex == 2)
             {
                 inattack = true;
                 Debug.Log("Playing BITING ");
-                playanimstate("ZOMBIE5_ATTACK2");               
+                playanimstate5("ZOMBIE5_ATTACK2");               
                 inattack = false;
             }
             else if(currentAnimIndex == 3)
             {
                 inattack = true;
                 Debug.Log("Playing SCREAM ");
-                playanimstate("ZOMBIE5_KICKING");             
+                playanimstate5("ZOMBIE5_KICKING");             
                 inattack = false;
             }
             else if(currentAnimIndex == 4)
             {
                 inattack = true;
                 Debug.Log("Playing SCREAM");
-                playanimstate("ZOMBIE5_ATTACK3");              
+                playanimstate5("ZOMBIE5_ATTACK3");              
                 inattack = false;
             }
             currentAnimIndex = animID;
         }    
         else if(dist <= look_radius && !isPatroling)
         {
-            zombie.isStopped = false;
-            playanimstate("ZOMBIE5_RUNNING");
-            zombie.speed = 13;
+            zombie5.isStopped = false;
+            playanimstate5("ZOMBIE5_RUNNING");
+            zombie5.speed = 13;
         }
-        else if(Target.target_instance.isDead)
-        {
-            playanimstate("ZOMBIE5_DIE");
-        }
-       
+      
 
 
         //else if (isAttacking && dist >= zombie.stoppingDistance && dist >= look_radius)
@@ -210,13 +201,13 @@ public class ENEMY_MOVEMENT5 : MonoBehaviour
 
         //}
     }
-    public void playanimstate(string state)
+    public void playanimstate5(string state5)
     {
-        if (currentstate == state)
+        if (currentstate5 == state5)
             return;
 
-        anime.Play(state);
-        currentstate = state;
+        anime5.Play(state5);
+        currentstate5 = state5;
     }
     private void OnDrawGizmosSelected()
     {

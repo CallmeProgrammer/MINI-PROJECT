@@ -7,11 +7,9 @@ public class Spawners : MonoBehaviour
 
     public GameObject[] spawners;
     public GameObject[] ZOMBIES;
-    public GameObject zombie;
-
     public int Zombie_Amount=1;
     public int range=10;
-    public int Zombie_Count;
+    public int Zombie_Count ;
     public int No_of_Zombies = 70;
 
     public static Spawners Spawners_instance;
@@ -34,14 +32,19 @@ public class Spawners : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Invoke("Spawn_enemy", 60);
+        Invoke("Spawn_enemy", 1);
 
         if(Zombie_Amount == No_of_Zombies)
         {
             CancelInvoke("spawn_enemy");
         }
-        //Spawn_enemy();
-        
+
+        //for(int i =0;i<=Zombie_Count;i++)
+        //{
+        //   Spawn_enemy();
+
+        //}
+
         //if (Zombie_Amount <=0)
         //{
         //    CancelInvoke("Spawn_enemy");

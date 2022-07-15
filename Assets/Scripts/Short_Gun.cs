@@ -131,16 +131,28 @@ public class Short_Gun : MonoBehaviour
             
             //Obtaining functions from another script
             Target target = hit.transform.GetComponent<Target>();
-            if(target !=null)
+            if(target !=null && hit.transform.GetComponent<ENEMY_MOVEMENT>())
             {
-                target.take_damage(damage);
+                target.take_damage1(damage);
             }
-            else if(hit.transform.gameObject.tag == "Head")
+            else if (target != null && hit.transform.GetComponent<ENEMY_MOVEMENT>())
             {
-                Debug.Log("Headshot");
-                target.take_damage(damage * 5);
-            }         
-            Instantiate(impacteffect, hit.point, Quaternion.LookRotation(hit.normal));
+                target.take_damage2(damage);
+            }
+        else if (target != null && hit.transform.GetComponent<ENEMY_MOVEMENT3>())
+        {
+            target.take_damage3(damage);
+        }
+        else if (target != null && hit.transform.GetComponent<ENEMY_MOVEMENT4>())
+        {
+            target.take_damage4(damage);
+        }
+        else if (target != null && hit.transform.GetComponent<ENEMY_MOVEMENT5>())
+        {
+            target.take_damage5(damage);
+        }
+
+        Instantiate(impacteffect, hit.point, Quaternion.LookRotation(hit.normal));
         if (hit.transform.tag == "Zombie")
         {
             isZombie_hitting = true;

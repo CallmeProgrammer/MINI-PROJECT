@@ -70,6 +70,8 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             updateanimation();
         }
       
+ 
+
         attack_radius = zombie.stoppingDistance;
         if (Physics.Raycast(Ray_point.transform.position, Ray_point.transform.forward, out hit, range))
         {
@@ -140,12 +142,6 @@ public class ENEMY_MOVEMENT : MonoBehaviour
 
     public void updateanimation()
     {
-    //    if (Target.target_instance.isDead == true && Target.target_instance.health <=0)
-    //    {
-    //        anime.SetTrigger("Dead");
-            
-           
-    //    }
         if (dist >= look_radius && isChasing == false)
         {
             //zombie.isStopped = false;
@@ -193,13 +189,11 @@ public class ENEMY_MOVEMENT : MonoBehaviour
             playanimstate("ZOMBIE_RUNNING");
             zombie.speed = 10;
         }
-        else if(Target.target_instance.isDead == true)
-        {
-            playanimstate("ZOMBIE_DIE");
-        }
-       
-
-
+        //else if(Target.target_instance.isDead == true)
+        //{
+        //    playanimstate("ZOMBIE_DIE");
+          
+        //}
         //else if (isAttacking && dist >= zombie.stoppingDistance && dist >= look_radius)
         //{
         //    playanimstate("ZOMBIE_WALKING");

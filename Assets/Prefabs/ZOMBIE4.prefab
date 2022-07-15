@@ -308,11 +308,11 @@ GameObject:
   - component: {fileID: 3354985250096200698}
   - component: {fileID: 8678262328532492672}
   - component: {fileID: 2721473675807744324}
-  - component: {fileID: 2721473675807744325}
   - component: {fileID: 2721473675807744322}
   - component: {fileID: 520672285934830}
   - component: {fileID: 520672285934805}
   - component: {fileID: 3169514495722234570}
+  - component: {fileID: 2410777103660687557}
   m_Layer: 13
   m_Name: ZOMBIE4
   m_TagString: Zombie
@@ -348,7 +348,7 @@ Animator:
   m_GameObject: {fileID: 2721473675807744320}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 6d74d0c86c44f7741863daf6fe3207ba, type: 3}
-  m_Controller: {fileID: 9100000, guid: 01cfb3735ac1bab469dcfb790eb87b61, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3a1d7f0de3542c9459378212ae7215f7, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -371,48 +371,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  isDead: 0
+  isDead1: 0
+  isDead2: 0
+  isDead3: 0
+  isDead4: 0
+  isDead5: 0
   zom_num: 0
---- !u!114 &2721473675807744325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2721473675807744320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f9371b4bdc6c84e922693812f8b01c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombie: {fileID: 2721473675807744322}
-  Player_pos: {fileID: 0}
-  PLAYER: {fileID: 0}
-  Ray_point: {fileID: 9158555755369042720}
-  range: 10
-  look_radius: 100
-  attack_radius: 10
-  dist: 0
-  Target_points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  currentTransformIndex: 0
-  currentAnimIndex: 0
-  currentstate: 
-  anime: {fileID: 8678262328532492672}
-  anims: 010000000200000003000000
-  isAttacking: 0
-  isPatroling: 0
-  isChasing: 0
-  inattack: 0
 --- !u!195 &2721473675807744322
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -484,6 +448,46 @@ CapsuleCollider:
   m_Height: 2.8748703
   m_Direction: 1
   m_Center: {x: 0.028984731, y: 0.93743515, z: 0.02667152}
+--- !u!114 &2410777103660687557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2721473675807744320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84f50353c3ad9904496a2a2d18668595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombie4: {fileID: 0}
+  Player_pos: {fileID: 0}
+  PLAYER: {fileID: 0}
+  Ray_point: {fileID: 9158555755369042720}
+  range: 10
+  look_radius: 100
+  attack_radius: 10
+  dist: 0
+  Target_points:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentTransformIndex: 0
+  currentAnimIndex: 0
+  currentstate4: 
+  anime4: {fileID: 0}
+  anims: 
+  isAttacking: 0
+  isPatroling: 0
+  isChasing: 0
+  inattack: 0
 --- !u!1 &2769469790542759021
 GameObject:
   m_ObjectHideFlags: 0

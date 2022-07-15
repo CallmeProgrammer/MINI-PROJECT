@@ -501,11 +501,11 @@ GameObject:
   - component: {fileID: 6193996945877540698}
   - component: {fileID: 222175785822143776}
   - component: {fileID: 6827087372229985764}
-  - component: {fileID: 6827087372229985765}
   - component: {fileID: 6827087372229985762}
   - component: {fileID: 8897964582684844110}
   - component: {fileID: 8897964582684844149}
   - component: {fileID: 715946365462214633}
+  - component: {fileID: 9208281015625839536}
   m_Layer: 13
   m_Name: ZOMBIE2
   m_TagString: Zombie
@@ -564,48 +564,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  isDead: 0
+  isDead1: 0
+  isDead2: 0
+  isDead3: 0
+  isDead4: 0
+  isDead5: 0
   zom_num: 0
---- !u!114 &6827087372229985765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6827087372229985760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f9371b4bdc6c84e922693812f8b01c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zombie: {fileID: 6827087372229985762}
-  Player_pos: {fileID: 0}
-  PLAYER: {fileID: 0}
-  Ray_point: {fileID: 316250089925097344}
-  range: 10
-  look_radius: 100
-  attack_radius: 10
-  dist: 0
-  Target_points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  currentTransformIndex: 0
-  currentAnimIndex: 0
-  currentstate: 
-  anime: {fileID: 222175785822143776}
-  anims: 010000000200000003000000
-  isAttacking: 0
-  isPatroling: 0
-  isChasing: 0
-  inattack: 0
 --- !u!195 &6827087372229985762
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -677,6 +641,46 @@ CapsuleCollider:
   m_Height: 2.9007835
   m_Direction: 1
   m_Center: {x: 0, y: 0.95039177, z: 0.16987939}
+--- !u!114 &9208281015625839536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6827087372229985760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6b1782be0ad064e809d60f63eb110c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombie2: {fileID: 0}
+  Player_pos: {fileID: 0}
+  PLAYER: {fileID: 0}
+  Ray_point: {fileID: 316250089925097344}
+  range: 10
+  look_radius: 100
+  attack_radius: 10
+  dist: 0
+  Target_points:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentTransformIndex: 0
+  currentAnimIndex: 0
+  currentstate2: 
+  anime2: {fileID: 0}
+  anims: 010000000200000003000000
+  isAttacking: 0
+  isPatroling: 0
+  isChasing: 0
+  inattack: 0
 --- !u!1 &7086309692168018128
 GameObject:
   m_ObjectHideFlags: 0
