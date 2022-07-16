@@ -24,6 +24,7 @@ public class Weapon_Picking : MonoBehaviour
     //
     public GameObject Weapon_Select_Text;
     public GameObject Health_Select_Text;
+    public GameObject Bullet_Select_Text;
     
     //
     public float range = 50f;
@@ -68,6 +69,7 @@ public class Weapon_Picking : MonoBehaviour
         /////////////////////////////////////
         Weapon_Select_Text.SetActive(false);
         Health_Select_Text.SetActive(false);
+        Bullet_Select_Text.SetActive(false);
 
     }
 
@@ -196,6 +198,22 @@ public class Weapon_Picking : MonoBehaviour
                 Health_Select_Text.SetActive(false);
             }
 ///////////////////////////////////////////////////////////////////////////////////////
+
+            if(hit.transform.tag == "Bullets" )
+            {
+                Bullet_Select_Text.SetActive(true);
+                if (Input.GetKey(KeyCode.E))
+                {
+                    hit.transform.gameObject.SetActive(false);
+                    GetComponent<Gun>().maxAmmo += 30;
+                }
+                            
+            }
+            else
+            {
+                Bullet_Select_Text.SetActive(false);
+            }
+           
 
 
         }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Target : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class Target : MonoBehaviour
     public bool isDead4 =false;
     public bool isDead5 =false;
     public static Target target_instance;
-    public int zom_num;
+    public TextMeshProUGUI zombi_kill_count;
     
 
     public void Awake()
@@ -33,11 +35,13 @@ public class Target : MonoBehaviour
         //else
        if (health <= 0f)
         {   
-            isDead1 = true;          
-           GetComponent<ENEMY_MOVEMENT>().enabled = false;
+            isDead1 = true;
+            //zombi_kill_count.text += 1;
+            GetComponent<ENEMY_MOVEMENT>().enabled = false;
            GetComponent<ENEMY_MOVEMENT>().anime.Play("ZOMBIE_DIE1");
             if (isDead1)
             {
+                zombi_kill_count.text += 1; 
                 Invoke("Die", 5);
             }
         }
@@ -129,7 +133,7 @@ public class Target : MonoBehaviour
     {
        /* isDead1 = false*/;
         gameObject.SetActive(false);
-        Destroy(gameObject);
+        //Destroy(gameObject);
 
     }
 

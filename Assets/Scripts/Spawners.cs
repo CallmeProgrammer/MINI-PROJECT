@@ -32,7 +32,7 @@ public class Spawners : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Invoke("Spawn_enemy", 1);
+        //Invoke("Spawn_enemy", 1);
 
         if(Zombie_Amount == No_of_Zombies)
         {
