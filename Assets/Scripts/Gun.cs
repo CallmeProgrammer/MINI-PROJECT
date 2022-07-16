@@ -159,22 +159,27 @@ public class Gun : MonoBehaviour
             Target target = hit.transform.GetComponent<Target>();
             if(target !=null && hit.transform.GetComponent<ENEMY_MOVEMENT>())
             {
+                isZombie_hitting = true;
                 target.take_damage1(damage);
             }
             else if (target != null && hit.transform.GetComponent<ENEMY_MOVEMENT2>())
             {
+                isZombie_hitting = true;
                 target.take_damage2(damage);
             }
             else if (target != null && hit.transform.GetComponent<ENEMY_MOVEMENT3>())
             {
+                isZombie_hitting = true;
                 target.take_damage3(damage);
             }
             else if (target != null && hit.transform.GetComponent<ENEMY_MOVEMENT4>())
             {
+                isZombie_hitting = true;
                 target.take_damage4(damage);
             }
             else if (target != null && hit.transform.GetComponent<ENEMY_MOVEMENT5>())
             {
+                isZombie_hitting = true;
                 target.take_damage5(damage);
             }
 

@@ -30,11 +30,11 @@ public class ENEMY_MOVEMENT : MonoBehaviour
     public RaycastHit hit;
     public bool inattack =false;
 
-    
+
 
     // Start is called before the first frame update
 
-     public void Awake()
+    public void Awake()
     {
         if (enemy_instance != null)
         {

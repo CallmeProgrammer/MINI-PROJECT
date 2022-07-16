@@ -39,11 +39,11 @@ public class Spawners : MonoBehaviour
             CancelInvoke("spawn_enemy");
         }
 
-        //for(int i =0;i<=Zombie_Count;i++)
-        //{
-        //   Spawn_enemy();
+        for (int i = 0; i <= Zombie_Count; i++)
+        {
+            Spawn_enemy();
 
-        //}
+        }
 
         //if (Zombie_Amount <=0)
         //{
