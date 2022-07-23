@@ -59,7 +59,7 @@ MonoBehaviour:
     value: 3
   colorFilter:
     overrideState: 1
-    value: {r: 0.5754717, g: 0.5754717, b: 0.5754717, a: 1}
+    value: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
   hueShift:
     overrideState: 0
     value: 0
@@ -1437,7 +1437,7 @@ MonoBehaviour:
     value: 7
   anamorphicRatio:
     overrideState: 0
-    value: -1
+    value: 0.5
   color:
     overrideState: 1
     value: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 1}

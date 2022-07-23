@@ -96,32 +96,49 @@ public class Gun : MonoBehaviour
         //    isShooting = true;
         //    shoot();
         //}
-       
 
-        
+        if (maxAmmo == 0 && currentAmmo == 0)
+        {
+            GetComponent<Gun>().enabled = false;
+        }
+
+        //if (GetComponent<Short_Gun>().maxAmmo == 0 && GetComponent<Short_Gun>().currentAmmo == 0)
+        //{
+        //    GetComponent<Short_Gun>().enabled = false;
+        //}
+
+
+
+
     }
-     
+
     IEnumerator Reload()
     {
         isreloading = true;
         //yield return new WaitForSeconds(reloadtime);
         yield return 0 ;
-        if (mag_size >= maxAmmo && maxAmmo !=0)
+        if (mag_size >= maxAmmo && maxAmmo != 0)
         {
             currentAmmo = maxAmmo;
-            mag_size -= maxAmmo;
-            maxAmmo = 0;
+
+            if(currentAmmo==0)
+            {
+                currentAmmo += 30;
+            }          
+            maxAmmo -= 30;
+            //maxAmmo = 0;
         }
-        
+
         else
         {
-            currentAmmo = mag_size;
+            currentAmmo = maxAmmo;
             mag_size = 0;
         }
-        
+
+
         isreloading = false; 
     }
-
+    
     public void shoot()
     {
        //Declaring Raycast

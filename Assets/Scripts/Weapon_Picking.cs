@@ -76,7 +76,6 @@ public class Weapon_Picking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-   
 
         if (Physics.Raycast(obj_cam.transform.position, obj_cam.transform.forward, out hit, range))
         {
@@ -230,8 +229,13 @@ public class Weapon_Picking : MonoBehaviour
                 Ar_Gun_pos.SetActive(false);
             }
         }
+        ////////
+        ///
+
+        
+
     }
-        public void Drop()
+    public void Drop()
         {
             //GUN.transform.parent = null;
             //GUN.GetComponent<Rigidbody>().isKinematic = false;
