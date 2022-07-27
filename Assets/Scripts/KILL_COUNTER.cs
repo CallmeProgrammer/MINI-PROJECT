@@ -7,7 +7,7 @@ using TMPro;
 public class KILL_COUNTER : MonoBehaviour
 {
     public TextMeshProUGUI counter_text;
-    int kills;
+    public int kills;
     // Start is called before the first frame update
     void Start()
     {

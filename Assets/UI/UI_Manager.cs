@@ -35,31 +35,7 @@ public class UI_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(GetComponent<Target>().isDead1 == true)
-        //{
-        //    killcount++;
-        //    Update_kill_count();
-        //}
-        //else if(GetComponent<Target>().isDead2 == true)
-        //{
-        //    killcount++;
-        //    Update_kill_count();
-        //}
-        //else if (GetComponent<Target>().isDead3 == true)
-        //{
-        //    killcount++;
-        //    Update_kill_count();
-        //}
-        //else if (GetComponent<Target>().isDead4 == true)
-        //{
-        //    killcount++;
-        //    Update_kill_count();
-        //}
-        //else if (GetComponent<Target>().isDead5 == true)
-        //{
-        //    killcount++;
-        //    Update_kill_count();
-        //}
+      
     }
  
 //
@@ -80,7 +56,11 @@ public class UI_Manager : MonoBehaviour
     {
         Short_GunIcon.SetActive(false);
     }
-
+    public void Application_Quit()
+    {
+        Debug.Log("Quit");
+        Application.Quit();
+    }
     //public void Update_kill_count()
     //{
     //    zombi_kill_count.text = killcount.ToString();
