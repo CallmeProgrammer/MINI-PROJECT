@@ -11,6 +11,7 @@ public class UI_Manager : MonoBehaviour
     public GameObject Short_GunIcon;
     public GameObject PlayerDamage_Screen;
     public GameObject Player_healthPanel;
+    public GameObject Mission_End_Panel;
     //public TextMeshProUGUI zombi_kill_count;
     //public int killcount;
 
@@ -30,6 +31,7 @@ public class UI_Manager : MonoBehaviour
     {
         disable_Ar_Icon();
         disable_Shortgun_Icon();
+        enable_Playerhealth_panel();
     }
 
     // Update is called once per frame
@@ -69,4 +71,8 @@ public class UI_Manager : MonoBehaviour
     //{
 
     //}
+    public void enable_Playerhealth_panel()
+    {
+       Player_healthPanel.SetActive(true);
+    }
 }

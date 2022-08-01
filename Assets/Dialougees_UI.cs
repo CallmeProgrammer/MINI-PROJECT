@@ -6,7 +6,21 @@ using UnityEngine.UI;
 public class Dialougees_UI : MonoBehaviour
 {
     public GameObject Dialougees;
+
+    public bool is_dialogue = false;
+
+    public static Dialougees_UI dialougees_instance;
     // Start is called before the first frame update
+    public void Awake()
+    {
+        if(dialougees_instance != null)
+        {
+            return;
+        }
+        dialougees_instance = this;
+    }
+
+
     void Start()
     {
         Dialougees.SetActive(false);
@@ -15,20 +29,18 @@ public class Dialougees_UI : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Invoke("Display_Dialogue", 60);
+            is_dialogue = true;
+            
         }
     }
     // Update is called once per frame
     void Update()
     {
-        Destroy_obj();
+
     }
-    public void Destroy_obj()
-    {
-        Destroy(Dialougees , 90);
-    }
-    public void Display_Dialogue()
+    public void enable_Dialogue()
     {
         Dialougees.SetActive(true);
     }
+   
 }

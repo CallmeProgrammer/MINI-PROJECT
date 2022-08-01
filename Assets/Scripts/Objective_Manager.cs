@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Objective_Manager : MonoBehaviour
 {
@@ -14,8 +16,14 @@ public class Objective_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<KILL_COUNTER>().kills == 40)
+        if(KILL_COUNTER.kill_count_instance.is_level_cleared)
         {
+            Time.timeScale = 0;     
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+
 
         }
 

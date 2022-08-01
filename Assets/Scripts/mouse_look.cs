@@ -6,18 +6,13 @@ public class mouse_look : MonoBehaviour
 {
     public float mouse_sens = 500f;
     public Transform player_body;
-
     float x_rotation = 0f;
-    //float y_rotation = 0f;
-    // Start is called before the first frame update
+   
     void Start()
     {
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
-      
-
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
-
     // Update is called once per frame
     void Update()
     {

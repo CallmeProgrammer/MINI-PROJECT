@@ -6,11 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class Pause_UI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public GameObject Pause_panel;
+    // Start is called before the first frame updat
+
+    public static Pause_UI Pause_instance;
+
+    public void Awake()
+    {
+        if(Pause_instance != null)
+        {
+            return;
+        }
+        Pause_instance = this;
+    }
     void Start()
     {
-        Pause_panel.SetActive(false);
+      
     }
 
     // Update is called once per frame
@@ -20,12 +30,11 @@ public class Pause_UI : MonoBehaviour
     }
     public void Pause()
     {
-        Pause_panel.SetActive(true);
         Time.timeScale = 0f;
     }
     public void Resume()
     {
-        Pause_panel.SetActive(false);
+       
         Time.timeScale = 1f;
     }
     public void Menu()
@@ -34,15 +43,14 @@ public class Pause_UI : MonoBehaviour
     }
     public void Restart()
     {
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
     }
     public void Quit()
     {
         Application.Quit();
     } 
-    public void Display_PausePanel()
+    public void Pause_Game()
     {
-        Pause_panel.SetActive(true);
+        Time.timeScale = 0f;
     }
-    
 }

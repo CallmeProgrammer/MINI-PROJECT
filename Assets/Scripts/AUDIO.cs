@@ -10,6 +10,7 @@ public class AUDIO : MonoBehaviour
     public AudioSource  Ak47_Audio;
     public AudioSource  Footsteps_Audio;
     public AudioSource  Background_Audio;
+    public AudioSource  Glass_Break_Audio;
     public static AUDIO audio_instance;
 
 
@@ -55,5 +56,9 @@ public class AUDIO : MonoBehaviour
     public void Play_ZombieAttack_audio()
     {
         ZombieAttack_Audio.Play();
+    }
+    public void Play_GlassBreak_audio()
+    {
+        Glass_Break_Audio.Play();
     }
 }

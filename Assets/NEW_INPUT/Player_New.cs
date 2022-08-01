@@ -24,6 +24,7 @@ public class Player_New : MonoBehaviour
     private bool isGrounded;
     public bool isRunning;
 
+
     public Transform Pos;
    
   public static Player_New Player_instance;
@@ -75,6 +76,10 @@ public class Player_New : MonoBehaviour
            
         }
 
+        if(Input.GetKey(KeyCode.W) && isGrounded)
+        {
+            AUDIO.audio_instance.Play_Footsteps_audio();
+        }
         //if(char_con.isGrounded == true && char_con.velocity.magnitude > 2f)
         //{
         //    AUDIO.audio_instance.Footsteps_Audio.volume = Random.Range(0.8f, 1.0f);

@@ -61,7 +61,7 @@ public class Fire_Extiguisher : MonoBehaviour
 
         }
         Destroy(gameObject);
-        Destroy(explosioneffect);
+        //Destroy(explosioneffect);
       
 
 

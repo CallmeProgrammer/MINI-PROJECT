@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Project_Scene.unity
     guid: 3298f7bddda340d4193160e11c6382a9
+  - enabled: 1
+    path: Assets/Scenes/Mission_End.unity
+    guid: 96a4bed73593d564890034bb99b27d62
+  - enabled: 1
+    path: Assets/Scenes/Player_dead.unity
+    guid: 8d38a68523eef164b955d9e4b85df2cc
   m_configObjects: {}

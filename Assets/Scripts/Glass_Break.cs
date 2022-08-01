@@ -41,7 +41,7 @@ public class Glass_Break : MonoBehaviour
 
         //when ray hits narmal glass it destroys and enables the Brokenglass which creates a breaking effect.
         Broken_glass.SetActive(true);
-
+        //AUDIO.audio_instance.Play_GlassBreak_audio();
         Destroy(Broken_glass, 5f);
     }
    

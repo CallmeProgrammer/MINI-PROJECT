@@ -34,7 +34,7 @@ public class Level_Loader: MonoBehaviour
         while (!operation.isDone)
         {
             Debug.Log(operation.progress);
-            float progress = Mathf.Clamp01(operation.progress / .9f);
+            float progress = Mathf.Clamp01(operation.progress / .2f);
 
             slider.value = progress;
 

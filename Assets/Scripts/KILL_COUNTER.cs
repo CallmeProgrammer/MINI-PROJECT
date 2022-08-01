@@ -8,7 +8,19 @@ public class KILL_COUNTER : MonoBehaviour
 {
     public TextMeshProUGUI counter_text;
     public int kills;
+    public bool is_level_cleared = false;
+
+    public static KILL_COUNTER kill_count_instance;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if(kill_count_instance != null)
+        {
+            return;
+        }
+        kill_count_instance = this;
+    }
     void Start()
     {
         
@@ -18,6 +30,11 @@ public class KILL_COUNTER : MonoBehaviour
     void Update()
     {
         showkills();
+
+        if(kills == 40)
+        {
+            is_level_cleared=true;  
+        }
     }
     private void showkills()
     {
