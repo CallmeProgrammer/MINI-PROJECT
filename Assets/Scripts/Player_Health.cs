@@ -32,6 +32,7 @@ public class Player_Health : MonoBehaviour
             gameObject.SetActive(false);
             Time.timeScale = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +2);
+            Cursor.visible = true;
 
         }
         

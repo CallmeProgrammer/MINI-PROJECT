@@ -19,6 +19,7 @@ public class Pause_Schema : MonoBehaviour
         {
             
             isPaused = true;
+            Cursor.visible = true;
             Time.timeScale = 0;
             Pause_panel.SetActive(true);
 
